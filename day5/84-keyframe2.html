@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    div {
+      position: absolute;
+      width: 100px;
+      height: 100px;
+      animation-name: move, fadeOut, changeColor;
+      animation-duration: 5s;
+      animation-iteration-count: infinite;
+    }
+    @keyframes move {
+      from { left: 0; }
+      to   { left: 300px; }
+    }
+    @keyframes fadeOut {
+      from { opacity: 1; }
+      to   { opacity: 0; }
+    }
+    @keyframes changeColor {
+      from { background-color: red; }
+      to   { background-color: blue; }
+    }
+  </style>
+</head>
+<body>
+  <div></div>
+</body>
+</html>
+
+<!-- 
+animation-duration: .5s;
+animation-duration: 500ms;
+
+지정하지 않으면 0이므로 작동하지 않음
+-->

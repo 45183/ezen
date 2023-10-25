@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    .normal-box {
+      width: 100px; height: 100px;
+    }
+    .absolute-box {
+      width: 100px; height: 100px;
+      position: absolute;
+    }
+    /* z-index는 position 프로퍼티가 static 이외인 요소에만 적용된다. */
+    .orange {
+      background-color: orange;
+      z-index: 1000;
+    }
+    .red {
+      background-color: red;
+      left: 50px; top: 50px;
+      z-index: 100;
+    }
+    .green {
+      background-color: green;
+      left: 100px; top: 100px;
+      z-index: 10;
+    }
+    .blue {
+      background-color: blue;
+      left: 150px; top: 150px;
+      z-index: 1;
+    }
+  </style>
+</head>
+<body>
+  <div class="normal-box orange"></div>
+  <div class="absolute-box red"></div>
+  <div class="absolute-box green"></div>
+  <div class="absolute-box blue"></div>
+</body>
+</html>

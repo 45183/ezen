@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    /* class 어트리뷰트 값이 container인 모든 요소를 선택 */
+    /* color 어트리뷰트는 자식 요소에 상속된다. */
+    .container { color: red; }
+    /* not supported in IE */
+    #p2 { color: blue; }
+    p{ color: green;}
+    /* 우선순위 존재 - id > p > class  -> 구체적일수록 우선 순위 높음 */
+  </style>
+</head>
+<body>
+  <h1>Heading</h1>
+  <div class="container">
+    <p id="p1">paragraph 1</p>
+    <p id="p2">paragraph 2</p>
+  </div>
+  <p>paragraph 3</p>
+</body>
+</html>

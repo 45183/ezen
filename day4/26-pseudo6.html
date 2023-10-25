@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    /* p 요소의 부모 요소의 자식 요소 중 첫번째 등장하는 p 요소 */
+    p:first-of-type  { color: red; }
+    /* p 요소의 부모 요소의 자식 요소 중 마지막 등장하는 p 요소 */
+    p:last-of-type   { color: blue; }
+    /* p 요소의 부모 요소의 자식 요소 중 앞에서 2번째에 등장하는 p 요소 */
+    p:nth-of-type(2) { color: green; }
+    /* p 요소의 부모 요소의 자식 요소 중 뒤에서 2번째에 등장하는 p 요소 */
+    p:nth-last-of-type(2) { color: orange;}
+
+    /* p 요소 중에서 첫번째 자식을 선택 */
+    p:first-child { background: brown;}
+  </style>
+</head>
+<body>
+  <h1>This is a heading</h1>
+  <p>The first paragraph.</p>
+  <p>The second paragraph.</p>
+  <p>The third paragraph.</p>
+  <p>The fourth paragraph.</p>
+  <div>
+    <h1>This is a heading</h1>
+    <p>The first paragraph.</p>
+    <p>The second paragraph.</p>
+    <p>The third paragraph.</p>
+    <p>The fourth paragraph.</p>
+  </div>
+</body>
+</html>

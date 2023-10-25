@@ -1,0 +1,33 @@
+
+/* @import url('https://fonts.googleapis.com/css2?family=East+Sea+Dokdo&display=swap'); */
+h1 {
+    font-family: 'Alumni Sans Collegiate One', sans-serif;
+    /* font-family: 'Nanum Pen Script', cursive; */
+    text-align: center;
+    color: #000;
+}
+
+p {
+    /* font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif; */
+    color: #bababa;
+    text-align: center;
+}
+
+a {
+    text-decoration: none; /* 하이퍼링크 사용시 밑줄 생기는거 지우기 */
+}
+
+a:hover {
+    text-decoration: underline; /* 마우스 올릴때만 밑줄 */
+}
+
+#testId{
+    color: rgb(31, 97, 47);
+    font-size: 2em;
+}
+
+body > #testId{
+    text-decoration: underline;
+    font-weight: bold;
+}
+

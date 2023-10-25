@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    .container {
+      color: white;
+      text-align: center;
+      padding: 10px;
+      background-color: #def0c2;
+      /* 폰트 사이즈를 0으로 지정하여 두 요소 사이에 정의하지 않은 공백을 제거 */
+      font-size: 0;
+    }
+    .d1, .d2 {
+      display: inline-block;
+      width: 50%;
+      padding: 20px 0;
+      /* 폰트 사이즈를 재지정 */
+      font-size: 1rem;
+    }
+    .d1 {
+      background-color: #59b1f6;
+    }
+    .d2 {
+      background-color: #ffb5b4;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="d1">1</div>
+    <div class="d2">2</div>
+  </div>
+  <div style="background:red;padding:10px;color:white;">3</div>
+</body>
+</html>
+
+<!-- 
+    https://css-tricks.com/fighting-the-space-between-inline-block-elements/
+ -->

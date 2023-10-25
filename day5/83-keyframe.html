@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    div {
+      position: absolute;
+      width: 100px;
+      height: 100px;
+      background-color: red;
+      animation-name: move;
+      animation-duration: 5s;
+      animation-iteration-count: infinite;
+    }
+    /* @keyframes rule */
+    @keyframes move {
+      /* keyframe */
+      from {
+        left: 0;
+      }
+      /* keyframe */
+      to {
+        left: 300px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div></div>
+</body>
+</html>
+
+
+
+<!-- 
+@keyframes move {
+/* 애니메이션 시작 시점 */
+from { left: 0; }
+/* 애니메이션 종료 시점 */
+to   { left: 300px; }
+}
+
+또는
+
+@keyframes move {
+0%   { left: 0; }
+50%  { left: 100px; }
+100% { left: 300px; }
+}
+ -->

@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    /* p 요소 중에 lang 어트리뷰트 값이 "en"과 일치하거나 "en-"로 시작하는 요소 */
+    p[lang|="en"] { color: red; }
+  </style>
+</head>
+<body>
+  <p lang="en">Hello!</p>
+  <p lang="en-us">Hi!</p>
+  <p lang="en-gb">Ello!</p>
+  <p lang="us">Hi!</p>
+  <p lang="no">Hei!</p>
+</body>
+</html>

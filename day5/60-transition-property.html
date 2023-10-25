@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    div {
+      width: 100px;
+      height: 50px;
+      background-color: red;
+      margin-bottom: 10px;
+      transition-property: width, background-color;
+      transition-duration: 20s, 10s;
+    }
+    div:hover {
+      width: 300px;
+      background-color: blue;
+    }
+  </style>
+</head>
+<body>
+  <div></div>
+</body>
+</html>
+
+<!-- 
+    트랜지션의 대상이 될 수 있는 것
+// Box model
+width height max-width max-height min-width min-height
+padding margin
+border-color border-width border-spacing
+// Background
+background-color background-position
+// 좌표
+top left right bottom
+// 텍스트
+color font-size font-weight letter-spacing line-height
+text-indent text-shadow vertical-align word-spacing
+// 기타
+opacity outline-color outline-offset outline-width
+visibility z-index
+
+
+레이아웃에 영향
+width height padding margin border
+display position float overflow
+top left right bottom
+font-size font-family font-weight
+text-align vertical-align line-height
+clear white-space
+ -->

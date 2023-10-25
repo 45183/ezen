@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    /* input 요소 중에서 type 어트리뷰트의 값이 password가 아닌 요소를 선택 */
+    input:not([type=password]) {
+      background: yellow;
+    }
+  </style>
+</head>
+<body>
+  <input type="text" value="Text input">
+  <input type="email" value="email input">
+  <input type="password" value="Password input">
+</body>
+</html>

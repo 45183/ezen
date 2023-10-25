@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    *, *:after, *:before {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html, body {
+      width:100%;
+      height:100%;
+    }
+
+    .bg-wrap {
+      /* page-wrap 보다 bg-wrap이 작은 경우, page-wrap이 가리는 문제를 해결 */
+      min-height: 600px;
+      height: 100%;
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      /* 마진 상쇄 문제 해결을 위한 코드
+        https://developer.mozilla.org/ko/docs/Web/CSS/CSS_Box_Model/Mastering_margin_collapsing
+      */
+      overflow: auto;
+      /* or padding: 0.1px; */
+    }
+
+    .parallax {
+      background-image: url("http://poiemaweb.com/img/bg/stock-photo-125979219.jpg");
+      /* parallax scrolling effect */
+      background-attachment: fixed;
+    }
+
+    .normal {
+      background-image: url("http://poiemaweb.com/img/bg/stock-photo-155153867.jpg");
+    }
+
+    #page-wrap {
+      width: 400px;
+      /* 마진 상쇄 발생 */
+      margin: 50px auto;
+      padding: 30px;
+      background: white;
+      box-shadow: 0 0 20px black;
+      /* size/line-height | family */
+      font: 15px/2 Georgia, Serif;
+    }
+  </style>
+</head>
+<body>
+  <div class="bg-wrap parallax">
+    <div id="page-wrap">
+      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid ipsum maxime libero, impedit necessitatibus quas blanditiis tenetur vero aut esse unde ab similique, delectus placeat enim quae expedita excepturi laboriosam.</p>
+      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid ipsum maxime libero, impedit necessitatibus quas blanditiis tenetur vero aut esse unde ab similique, delectus placeat enim quae expedita excepturi laboriosam.</p>
+      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid ipsum maxime libero, impedit necessitatibus quas blanditiis tenetur vero aut esse unde ab similique, delectus placeat enim quae expedita excepturi laboriosam.</p>
+    </div>
+  </div>
+  <div class="bg-wrap normal"></div>
+</body>
+</html>

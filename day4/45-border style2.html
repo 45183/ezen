@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    p {
+      background: palegreen;
+      padding: 10px;
+    }
+    p.d1 {
+      /* four sides */
+      border-style: dashed;
+    }
+    p.d2 {
+      /* horizontal | vertical */
+      border-style: dotted solid;
+    }
+    p.d3 {
+      /* top | horizontal | bottom */
+      border-style: hidden double dashed;
+    }
+    p.d4 {
+      /* top | right | bottom | left */
+      border-style: none solid dotted dashed;
+    }
+  </style>
+</head>
+<body>
+  <p class="d1">border-style: dashed;</p>
+  <p class="d2">border-style: dotted solid;</p>
+  <p class="d3">border-style: hidden double dashed;</p>
+  <p class="d4">border-style: none solid dotted dashed;</p>
+  </body>
+</html>

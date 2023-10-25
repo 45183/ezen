@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <style>
+      .content-box {
+        width: 600px;
+        border: 10px solid;
+        padding: 50px;
+        margin: 50px;
+        background-color: red;
+      }
+      .border-box {
+        box-sizing: border-box;
+        width: 600px;
+        border: 10px solid;
+        padding: 50px;
+        margin: 50px;
+        background-color: red;
+      }
+    </style>
+  </head>
+  <body>
+  <div class="content-box">content-box</div>
+  <div class="border-box">border-box</div>
+</body>
+</html>
+
+
+<!--
+    
+box-sizing 프로퍼티는 상속되지 않는다. 따라서 box-sizing 프로퍼티를 사용하도록 초기화하려면 아래와 같이 정의
+
+html {
+  box-sizing: border-box;
+}
+*, *:before, *:after {
+  box-sizing: inherit;
+
+} -->

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <title>fieldset과 legend 태그</title>
+    <style>
+        ul {
+            list-style: none;
+        }
+
+        li {
+            margin: 20px;
+        }
+
+        li label {
+            width: 80px;
+            float: left;
+        }
+
+        fieldset {
+            margin: 15px;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- legend : 범례 -->
+    <form>
+        <fieldset>
+            <legend>개인 정보</legend>
+            <ul>
+                <li>
+                    <label for="name">이름</label>
+                    <input for="text" id="name">
+                </li>
+                <li>
+                    <label for="mail">메일 주소</label>
+                    <input for="text" id="mail">
+                </li>
+            </ul>
+        </fieldset>
+        <fieldset>
+            <legend>로그인 정보</legend>
+            <ul>
+                <li>
+                    <label for="id">아이디</label>
+                    <input for="text" id="user_id">
+                </li>
+                <li>
+                    <label for="password">비밀 번호</label>
+                    <input for="password" id="user_pw">
+                </li>
+            </ul>
+        </fieldset>
+    </form>
+</body>
+
+</html>

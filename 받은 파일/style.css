@@ -1,0 +1,45 @@
+h1 { font-family: sans-serif;
+    text-align: center;
+    color:rgb(41, 177, 53);
+  }
+
+p {
+      font-family: 'Times New Roman', Times, serif;
+  color: rgb(207, 17, 33);
+  text-align: center; 
+  }
+
+
+  a {         text-decoration: none;}
+
+a:hover {
+  text-decoration: underline;
+}
+
+#gogo-aws {
+    font-family: 'Times New Roman', Times, serif;
+    color: rgb(126, 69, 201);
+    text-align: left; 
+
+}
+
+#gogo-aws1 {
+    font-family: 'Times New Roman', Times, serif;
+    color: rgb(171, 189, 91);
+    text-align: left; 
+
+}
+
+#gogo-aws3 {
+    font-family: 'Times New Roman', Times, serif;
+    color: rgb(107, 12, 32);
+    text-align: left; 
+    font-weight: bold;
+    font-size: 52px;
+
+}
+
+#gogo-aws5 {
+    font-family: 'Times New Roman', Times, serif;
+    color: rgb(88, 150, 134);
+    text-align: left; }

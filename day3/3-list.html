@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <style>
+      table, th, td {
+        border: 2px solid rgb(238, 41, 41); /* 선 굵기, 선 색상 */
+        border-collapse: collapse; /* collapse 사용 시 선 하나로 */
+      }
+      th, td {
+        padding: 10px; /* 여백 */
+      }
+    </style>
+  </head>
+  <body>
+    <h2>2개의 culumn을 span</h2>
+    <table>
+      <tr>
+        <th>Name</th>
+        <th colspan="2">Telephone</th>
+        <!-- colspan : 해당 셀이 점유하는 열의 수 -->
+      </tr>
+      <tr>
+        <td>Bill Gates</td>
+        <td>555 77 854</td>
+        <td>555 77 855</td>
+      </tr>
+    </table>
+
+    <h2>2개의 row를 span</h2>
+    <table>
+      <tr>
+        <th>Name:</th>
+        <td>Bill Gates</td>
+      </tr>
+      <tr>
+        <th rowspan="2">Telephone:</th>
+        <!-- rowsapn : 해달 셀이 점유하는 행의 수 -->
+        <td>555 77 854</td>
+      </tr>
+      <tr>
+        <td>555 77 855</td>
+      </tr>
+    </table>
+  </body>
+</html>

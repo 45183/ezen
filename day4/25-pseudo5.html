@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    /* ol 요소의 자식 요소인 li 요소 중에서 짝수번째 요소만을 선택 */
+    ol > li:nth-child(2n)   { color: orange; }
+    /* ol 요소의 자식 요소인 li 요소 중에서 홀수번째 요소만을 선택 */
+    ol > li:nth-child(2n+1) { color: green; }
+
+    /* ol 요소의 자식 요소인 li 요소 중에서 첫번쨰 요소만을 선택 */
+    ol > li:first-child     { color: red; }
+    /* ol 요소의 자식 요소인 li 요소 중에서 마지막 요소만을 선택 */
+    ol > li:last-child      { color: blue; }
+
+    /* ol 요소의 자식 요소인 li 요소 중에서 4번째 요소 요소만을 선택 */
+    ol > li:nth-child(4)    { background: brown; }
+
+    /* ul 요소의 모든 자식 요소 중에서 뒤에서부터 시작하여 홀수번째 요소만을 선택 */
+    ul > :nth-last-child(2n+1) { color: red; }
+    /* ul 요소의 모든 자식 요소 중에서 뒤에서부터 시작하여 짝수번째 요소만을 선택 */
+    ul > :nth-last-child(2n)   { color: blue; }
+  </style>
+</head>
+<body>
+  <ol>
+    <li>Espresso</li>
+    <li>Americano</li>
+    <li>Caffe Latte</li>
+    <li>Caffe Mocha</li>
+    <li>Caramel Latte</li>
+    <li>Cappuccino</li>
+  </ol>
+
+  <ul>
+    <li>Espresso</li>
+    <li>Americano</li>
+    <li>Caffe Latte</li>
+    <li>Caffe Mocha</li>
+    <li>Caramel Latte</li>
+    <li>Cappuccino</li>
+  </ul>
+</body>
+</html>
