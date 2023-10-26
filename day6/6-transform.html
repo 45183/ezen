@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+  .box {
+    width: 95px;
+    height: 95px;
+    line-height: 95px;
+    color: white;
+    text-align: center;
+    border-radius: 6px;
+  }
+  .original {
+    margin: 30px;
+    border: 1px dashed #cecfd5;
+    background: #eaeaed;
+    float: left;
+  }
+  .child {
+    background: #2db34a;
+    cursor: pointer;
+  }
+  .translate {
+    transform: translate(10px, 50px);
+  }
+  .scale {
+    transform: scale(.75);
+  }
+  .skew {
+    transform: skew(5deg, -20deg);
+  }
+  .rotate {
+    transform: rotate(70deg);
+  }
+  .complex {
+    transform: scale(.5) rotate(20deg);
+  }
+
+  /* Animation Effect - cascading */
+  .translate:hover {
+    transition: transform 1s linear;
+    transform: translate(0px, 0px);
+  }
+  /* .translate:hover {
+    animation: translate 1s linear forwards;
+  }
+  @keyframes translate {
+    100% {
+      transform: translate(0px, 0px);
+    }
+  } */
+  .scale:hover {
+    transition: transform 1s linear;
+    transform: scale(1);
+  }
+  .skew:hover {
+    transition: transform 1s linear;
+    transform: skew(0, 0);
+  }
+  .rotate:hover {
+    transition: transform 1s linear;
+    transform: rotate(0);
+  }
+  .complex:hover {
+    transition: transform 1s linear;
+    transform: scale(1) rotate(0);
+  }
+  </style>
+</head>
+<body>
+  <div class="original box">
+    <div class="child box translate">translate</div>
+  </div>
+  <div class="original box">
+    <div class="child box scale">scale</div>
+  </div>
+  <div class="original box">
+    <div class="child box skew">skew</div>
+  </div>
+  <div class="original box">
+    <div class="child box rotate">rotate</div>
+  </div>
+  <div class="original box">
+    <div class="child box complex">complex</div>
+  </div>
+</body>
+</html>
+
+
+
+<!-- 
+   
+translate(x,y)	요소의 위치를 X축으로 x만큼, Y축으로 y만큼 이동시킨다.	px, %, em 등
+translateX(n)	요소의 위치를 X축으로 x만큼 이동시킨다.	px, %, em 등
+translateY(n)	요소의 위치를 Y축으로 y만큼 이동시킨다.	px, %, em 등
+scale(x,y)	요소의 크기를 X축으로 x배, Y축으로 y배 확대 또는 축소 시킨다.	0과 양수
+scaleX(n)	요소의 크기를 X축으로 x배 확대 또는 축소 시킨다.	0과 양수
+scaleY(n)	요소의 크기를 Y축으로 y배 확대 또는 축소 시킨다.	0과 양수
+skew(x-angle,y-angle)	요소를 X축으로 x 각도만큼, Y축으로 y 각도만큼 기울인다.	+/- 각도(deg)
+skewX(x-angle)	요소를 X축으로 x 각도만큼 기울인다.	+/- 각도(deg)
+skewY(y-angle)	요소를 Y축으로 y 각도만큼 기울인다.	+/- 각도(deg)
+rotate(angle)	요소를 angle만큼 회전시킨다.	+/- 각도(deg)
+ 
+ -->

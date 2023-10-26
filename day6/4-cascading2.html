@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    p        { color: red !important; }
+    #thing   { color: blue; }
+    /* !important > id 이므로 color:red 적용 */
+
+    div.food { color: chocolate; }
+    .food    { color: green; }
+    div      { color: orange; }
+    /* div.food > .food > div 이므로 color:chocolate 적용 (구체적일수록 우선순위 높음) */
+  </style>
+</head>
+<body>
+  <p id="thing">Will be Red.</p>
+  <div class="food">Will be Chocolate.</div>
+</body>
+</html>
+
+<!-- 
+
+명시도
+대상을 명확하게 특정할수록 명시도가 높아지고 우선순위가 높아진다
+
+!important > 인라인 스타일 > 아이디 선택자 > 클래스/어트리뷰트/가상 선택자 > 태그 선택자 > 전체 선택자 > 상위 요소에 의해 상속된 속성
+
+ -->
