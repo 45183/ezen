@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Flexbox</title>
+  <meta charset="UTF-8">
+  <style>
+  .flex-container {
+    width: 500px;
+    margin: 10px;
+    padding: 15px;
+    border-radius: 5px;
+    background: #60B99A;
+
+    display: flex;
+    flex-wrap: wrap;
+    overflow: auto;
+    /* 모든 flex item은 flex item의 행 이후에 균등하게 분배된 공간에 정렬되어 배치 */
+    align-content: stretch;
+
+    /* 모든 flex item은 flex container의 cross start 기준으로 stack 정렬 */
+    /* align-content: flex-start; */
+
+    /* 모든 flex item은 flex container의 cross end 기준으로 stack 정렬 */
+    /* align-content: flex-end; */
+
+    /* 모든 flex item은 flex container의 cross axis의 중앙에 stack 정렬 */
+    /* align-content: center; */
+
+    /* 첫번째 flex item의 행은 flex container의 상단에 마지막 flex item의 행은 flex container의 하단에 배치되며 나머지 행은 균등 분할된 공간에 배치 정렬 */
+    /* align-content: space-between; */
+
+    /* 모든 flex item은 균등 분할된 공간 내에 배치 정렬 */
+    /* align-content: space-around; */
+  }
+
+  .flex-item {
+    margin: 10px;
+    padding: 20px;
+    color: #fff;
+    text-align: center;
+    border-radius: 5px;
+    background: #4584b1;
+  }
+  </style>
+</head>
+<body>
+  <div class="flex-container">
+    <div class="flex-item">11111111</div>
+    <div class="flex-item">22222222</div>
+    <div class="flex-item">33333333</div>
+    <div class="flex-item">44444444</div>
+    <div class="flex-item">55555555</div>
+  </div>
+</body>
+</html>
