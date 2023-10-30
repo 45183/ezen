@@ -79,7 +79,8 @@
 -- SELECT * FROM `shopdb`.`indexTBL` WHERE first_name = 'Mary';
 
 # view 뷰 특징
-# 가상 테이블, 
+# 가상 테이블, 진짜 테이블에 링크된 개녕
+# 뷰를 사용하면 데이터 보안과 안정성이 좋음 (읽기 전용의 특징을 잘 살림)
 
 -- use shopdb;
 -- -- view  생성
@@ -133,4 +134,23 @@
 -- -- error: 1175 safe update 가 뜬다면 안전하게 (키값으로만) 삭제 업데이트 설정이 켜져있어서임
 -- -- edit -> preferences -> sql editor -> safe updates(가장 아래) 체크해제
 
-select * from memberTBL;
+-- select * from memberTBL;
+-- select * from deletedMemberTBL;
+
+
+-- 트리거 삭제 
+-- drop trigger trg_deletedMemberTBL
+
+-- # 오타 등으로 트리거 재설정시 사용
+-- delimiter //
+-- drop trigger if exists trg_deletedMemberTBL;
+-- create trigger trg_deletedMemberTBL
+-- after delete
+-- on memberTBL
+-- for each row
+-- begin
+-- -- old 테이블의 내용을 백업 테이블에 삽입
+-- insert into deletedMemberTBL
+-- values (old.memberID, old.memberName, old.memberAddress, curdate());
+-- end //
+-- delimiter ;
