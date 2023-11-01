@@ -1,0 +1,5 @@
+최대 허용 파일 업로드 사이즈
+show variables like 'max_allowed_packet';
+
+업로드 / 다운르드 경로 설정
+show variables like 'secure_file_priv';
