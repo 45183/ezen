@@ -1,0 +1,38 @@
+select : 컬럼 선택
+from : 테이블 선택
+where : 조건문 설정
+=와 like는 같은 의미인데 like가 와일드 카드 사용시 쓰인다. like가 =보다 좀더 느슨하게 사용할 수 있는 느낌적 느낌
+order by : 기준으로 잡아서 정렬
+limit x, y: x개 제끼고 y개까지 보여준다.
+not, <> : ~~는 제끼자 의미
+and, or가 섞인 복합조건이면 애매하면 괄호쳐주자. 회사에서 이쁨받으니까 ㅋ
+_: 한 글자 아무거나 허용해서 검색한다.
+%: 글자수 제한없이 들어간 방향으로 암거나 허용해서 검색
+offset: 앞에 몇명 기록을 삭제함.
+inner join: 양 테이블을 기준 컬럼으로 열맞춰서 합친다. 단, 양 테이블 모두에 데이터가 존재하는것만 검색이 된다.
+update: 컬럼값을 업데이트 하고 싶을 때 사용
+update 테이블 이름 set 컬럼이름 원하는 명령어로 조정하고 싶은 값을 입력한다.
+create database: schema를 만든다. 이미 만든 데이터베이스 있으면 에러난다.
+CREATE DATABASE IF NOT EXISTS: 만들고싶은 데이터베이스가 없을때만 새로 만들어 준다.
+SELECT SaKilA.AcTor_id FROM ACTor;
+컬럼 이름의 대소문자 구분 옵션은
+lower_case_table_names 로 조정된다.
+0일땐 대소문자 구분해야함
+1일땐 소문자로 시스템에 저장되고 보이는것만 구분되게 보임.
+2일땐 실제로 저렇게 저장되는데 소문자로만 사용이 된다.
+윈도우는 1값이고, 맥북은 2값 --> 소문자로만 사용가능
+리눅스는 0값이라서 대소문자 구분 해야돼.
+CREATE TABLE wage (monthly DOUBLE);
+wage라는 테이블 만들어서 안에 monthly라는 컬럼을 만든다. 이때 컬럼 내 데이터의 속성은 실수이다.
+INSERT INTO wage VALUES (50000/12);
+wage 컬럼 안에 해당 데이터를 삽입한다.
+AUTO_INCREMENT: primary 키값이 자동으로 증가되도록
+concat: 테이블 합치기
+ORDER BY: ~ 기준으로 더해서 정렬
+
+
+
+
+
+
+
