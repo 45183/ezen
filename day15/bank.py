@@ -28,7 +28,7 @@ class BankAccount :
     
     if __name__ == "__main__" :
         
-        account = 0
+        account = BankAccount(1000)
         account.deposit(5000)
         account.withdraw(2000)
         account.get_balance()

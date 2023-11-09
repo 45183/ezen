@@ -1,0 +1,17 @@
+EMP,,,,,,,DEPT,,,,
+A,B,C,,,,,C,D,E,,
+1,B,W,,,,,W,1,10,,
+3,D,W,,,,,Z,4,11,,
+5,Y,Y,,,,,V,2,22,,
+,,,,,,,,,,,
+FULL OUTER,,,,,,,LEFT,,,,
+A,B,C,D,E,,,A,B,C,D,E
+1,B,W,1,10,,,1,B,W,1,10
+3,D,W,1,10,,,3,D,W,1,10
+5,Y,Y,NAN,NAN,,,5,Y,Y,NAN,NAN
+NAN,NAN,Z,4,11,,,RIGHT,,,,
+NAN,NAN,V,2,22,,,A,B,C,D,E
+,,,,,,,1,B,W,1,10
+,,,,,,,3,D,W,1,10
+,,,,,,,NAN,NAN,NAN,4,11
+,,,,,,,NAN,NAN,NAN,2,22
