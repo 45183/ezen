@@ -1,0 +1,931 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // var는 변수자체 변경 가능, let은 변수 재선언은 안되지만 변수값 재할당 가능
+        // const는 변수값 재할당은 안되지만 객체와 배열 내부 원소값 재할당 가능
+        // 선언된 변수는 블록 내에서만 유효하니
+        // let count = 0;
+        // count = count + 1; // 변수값 업데이트
+        // xalert(count)
+
+
+        // 자바스크립트는 변수선언하고 프린트가 3종류 - alert, document, console
+        // alert("안녕하세요")
+        // document.write("안녕하세요! 이것은 동적으로 추가된 내용입니다.")
+        // let message = "안녕하세요"
+        // console.log(message)
+
+        // alert()는 사용자에게 메시지를 강제로 표시하므로 사용자 경험에 영향을 미칠 수 있으므로 신중하게 사용해야 합니다.
+        // document.write()를 남용하면 웹 페이지 구조를 망칠 수 있으므로 주의가 필요하며 
+        // console.log()은 개발 단계에서 사용하고 최종 사용자에게는 보이지 않도록 해야 합니다.
+
+
+
+
+        // 배열 생성
+        // 배열 리터럴 사용
+        // let fruits = ['사과', '바나나', '딸기'];
+
+        // Array 생성자 사용
+        // let numbers = new Array(1, 2, 3, 4, 5);
+
+
+        // 아래 두개는 같다
+        // let numbers = new Array(1, 2, 3, 4, 5);
+        // let numbers2 = [1, 2, 3, 4, 5];
+        
+        // document.write(numbers);
+        // document.write(numbers2);
+
+
+
+
+        // 배열 요소 접근
+        // let fruits = ['사과', '바나나', '딸기'];
+
+        // document.write(fruits[0]); // "사과" - 첫 번째 요소
+        // document.write(fruits[1]); // "바나나" - 두 번째 요소
+        // document.write(fruits[2]); // "딸기" - 세 번째 요소
+
+
+
+
+        // // 배열 생성
+        // let colors = ['빨강', '파랑', '초록']; // let 대신 const, var도 정상 작동
+
+        // // 배열 요소 접근
+        // console.log(colors[0]); // "빨강"
+        // console.log(colors[1]); // "파랑"
+        // console.log(colors[2]); // "초록"
+
+        // // 배열 길이
+        // // 배열의 길이를 찾는 함수와 요소찾는 함수 기억하기
+        // console.log(colors.length); // 3
+
+        // // 배열 요소 변경
+        // colors[1] = '주황';
+        // console.log(colors[1]); // "주황"
+
+        // // 새로운 요소 추가
+        // colors.push('보라');
+        // console.log(colors.length); // 4
+        // console.log(colors[3]); // "보라"
+
+
+
+
+
+        
+        // 개발자가 의도적으로 변수의 타입을 변환 --> 명시적 변환
+        // 자바스크립트 엔진이 자동으로 변수의 타입 변환 --> 암묵적 변환
+
+        // var x = 10;
+
+        // // 명시적 타입 변환
+        // var str = x.toString(); // 숫자를 문자열로 타입 캐스팅한다.
+        // console.log(typeof str); // string
+
+        // // 암묵적 타입 변환
+        // var y = x + str
+        // console.log(y); // 1010 
+        // var z = x - str
+        // console.log(z)  // 0
+
+
+
+        // var x = 10;
+
+        // // 암묵적 타입 변환
+        // // 숫자 타입 x의 값을 바탕으로 새로운 문자열 타입의 값을 생성해 표현식을 평가한다.
+        // var str = x + '';
+
+        // console.log(typeof str, str); // string 10
+
+        // // 변수 x의 값이 변경된 것은 아니다.
+        // console.log(x); // 10
+
+        // // 원래 toString 명령어를 사용해야 문자열 변수로 바뀐다. var x = 10; --> var str = x.toString();
+        // // 따옴표 사이 문자를 더하기 처리하면 문자열로 바뀐다. var str = x + '';
+
+
+
+
+
+
+
+
+
+        // 표현식이 모두 문자열 타입이여야 하는 컨텍스트
+        // x = '10' + 2               // '102'
+        // y = `1 * 10 = ${ 1 * 10 }` // "1 * 10 = 10"
+        // document.write(x)
+        // document.write(y)
+
+        // 표현식이 모두 숫자 타입이여야 하는 컨텍스트
+        // z = 5 * '10' // 50
+        // document.write(z)
+
+        // 표현식이 불리언 타입이여야 하는 컨텍스트
+        // !0 // true
+        // if (1) { }
+        // z = `1 * 10 = ${ 1 * 10 }`
+        // if(!0) {alert(z)}
+
+
+
+
+
+
+        // // 암묵적 변화의 유형별 정리
+        
+        // // 숫자 타입
+        // 0 + ''              // "0"
+        // -0 + ''             // "0"
+        // 1 + ''              // "1"
+        // -1 + ''             // "-1"
+        // NaN + ''            // "NaN"
+        // Infinity + ''       // "Infinity"
+        // -Infinity + ''      // "-Infinity"
+
+        // // 불리언 타입
+        // true + ''           // "true"
+        // false + ''          // "false"
+        
+        // // null 타입
+        // null + ''           // "null"
+        
+        // // undefined 타입
+        // undefined + ''      // "undefined"
+        
+        // // 심볼 타입 - 에러
+        // (Symbol()) + ''     // TypeError: Cannot convert a Symbol value to a string
+        
+        // // 객체 타입
+        // ({}) + ''           // "[object Object]"
+        // Math + ''           // "[object Math]"
+        // [] + ''             // ""
+        // [10, 20] + ''       // "10,20"
+        // (function(){}) + '' // "function(){}"
+        // Array + ''          // "function Array() { [native code] }"
+
+
+
+        // // 숫자 타입으로 변환
+        // // 덧셈은 문자형 처리하면서 숫자를 붙여쓰고, 뺄셈, 나눗셈과 곱셈은 숫자형 처리하면서 계산
+        // 1 - '1'    // 0
+        // 1 * '10'   // 10
+        // 1 / 'one'  // NaN
+        // z = 1 / '1'
+        // document.write(z)   // 1
+        
+        // '1' > 0   // true
+
+
+
+
+
+        // // 묵시적 형태변환의 대표적 예시
+        // document.write(('b' + 'a' + + 'a' + 'a').toLowerCase());    // banana
+        // // 공백과 문자열을 더하기 처리하면 'NaN' 처리 - ` + 'a'` -> NaN
+
+
+
+
+
+        // // 문자열 타입
+        // +''             // 0
+        // +'0'            // 0
+        // +'1'            // 1
+        // +'string'       // NaN
+
+        // // 불리언 타입
+        // +true           // 1
+        // +false          // 0
+
+        // // null 타입
+        // +null           // 0
+
+        // // undefined 타입
+        // +undefined      // NaN
+
+        // // 심볼 타입
+        // +Symbol()       // TypeError: Cannot convert a Symbol value to a number
+
+        // // 객체 타입
+        // +{}             // NaN
+        // +[]             // 0
+        // +[10, 20]       // NaN
+        // +(function(){}) // NaN
+
+        // 빈 문자열(‘’), 빈 배열([]), null, false는 0으로, true는 1로 변환
+        // 객체와 빈 배열이 아닌 배열, undefined는 변환되지 않아 NaN
+
+
+        // var z = 5 * (+[])
+        // console.log(z)  // 0
+
+
+
+
+
+        // 간단한 조건문에서 중괄호를 빼먹어도 돌아가는 경우가 있는데 문제의 소지가 있다.
+        // 변수의 범위는 블럭에 한정되는데 (이전 let 예시) 블럭의 범위를 정하는것이 괄호이기 때문 (변수의 지정범위 이슈)
+        //  - 중괄호 없이 돌아가면 변수의 범위는 블록에 한정되는데 그 블럭을 규정짓는것이 괄호이므로 이게 문제가 발생
+        // 아래 간단한 조건문은 중괄호 유뮤와 상관없이 돌아간다.
+        // if ('')    console.log('1');
+        // if (true)  console.log('2');
+        // if (0)     {console.log('3')};
+        // if ('str') {console.log('4')};
+        // if (null)  {console.log('5')};
+        // 2 4
+
+
+
+        // // false로 나오는 값(falsy값) - false, undefined, null, 0, -0, NaN, ’’ (빈문자열)
+
+        // if (!false)     console.log(false + ' is falsy value');
+        // if (!undefined) console.log(undefined + ' is falsy value');
+        // if (!null)      console.log(null + ' is falsy value');
+        // if (!0)         console.log(0 + ' is falsy value');
+        // if (!NaN)       console.log(NaN + ' is falsy value');
+        // if (!'')        console.log('' + ' is falsy value');
+
+
+
+
+
+
+
+        // // 주어진 인자가 Falsy 값이면 true, Truthy 값이면 false를 반환한다.
+        // function isFalsy(v) {
+        //     return !v;
+        // }
+
+        // // 주어진 인자가 Truthy 값이면 true, Falsy 값이면 false를 반환한다.
+        // function isTruthy(v) {
+        //     return !!v;
+        // }
+
+        // // 모두 true를 반환한다.
+        // console.log(isFalsy(false));
+        // console.log(isFalsy(undefined));
+        // console.log(isFalsy(null));
+        // console.log(isFalsy(0));
+        // console.log(isFalsy(NaN));
+        // console.log(isFalsy(''));
+
+        // console.log(isTruthy(true));
+        // // 빈 문자열이 아닌 문자열은 Truthy 값이다.
+        // console.log(isTruthy('0'));
+        // console.log(isTruthy({}));
+        // console.log(isTruthy([]));
+
+
+
+
+
+
+        
+        // // 명시적 타입 변환
+        
+        
+        // // 문자열 타입으로 변환
+        // // 숫자형을 문자형으로 바꾸는 법 - String(1), (1).toString(), 1 + ''
+
+        // // 1. String 생성자 함수를 new 연산자 없이 호출하는 방법
+        // // 숫자 타입 => 문자열 타입
+        // console.log(String(1));        // "1"
+        // console.log(String(NaN));      // "NaN"
+        // console.log(String(Infinity)); // "Infinity"
+        
+        // // 불리언 타입 => 문자열 타입
+        // console.log(String(true));     // "true"
+        // console.log(String(false));    // "false"
+
+        // // 2. Object.prototype.toString 메소드를 사용하는 방법
+        // // 숫자 타입 => 문자열 타입
+        // console.log((1).toString());        // "1"
+        // console.log((NaN).toString());      // "NaN"
+        // console.log((Infinity).toString()); // "Infinity"
+       
+        // // 불리언 타입 => 문자열 타입
+        // console.log((true).toString());     // "true"
+        // console.log((false).toString());    // "false"
+
+        // // 3. 문자열 연결 연산자를 이용하는 방법
+        // // 숫자 타입 => 문자열 타입
+        // console.log(1 + '');        // "1"
+        // console.log(NaN + '');      // "NaN"
+        // console.log(Infinity + ''); // "Infinity"
+        
+        // // 불리언 타입 => 문자열 타입
+        // console.log(true + '');     // "true"
+        // console.log(false + '');    // "false"
+
+
+
+
+        // // 숫자 타입으로 변환
+        // // 문자형을 숫자형으로 자료형 바꾸는 법 - Number('1'), parseInt('1'), parseFloar('10.53'), +'1'
+
+        // // 1. Number 생성자 함수를 new 연산자 없이 호출하는 방법
+        // // 문자열 타입 => 숫자 타입
+        // console.log(Number('0'));     // 0
+        // console.log(Number('-1'));    // -1
+        // console.log(Number('10.53')); // 10.53
+        
+        // // 불리언 타입 => 숫자 타입
+        // console.log(Number(true));    // 1
+        // console.log(Number(false));   // 0
+
+        // // 2. parseInt, parseFloat 함수를 사용하는 방법(문자열만 변환 가능)
+        // // 문자열 타입 => 숫자 타입
+        // console.log(parseInt('0'));       // 0
+        // console.log(parseInt('-1'));      // -1
+        // console.log(parseFloat('10.53')); // 10.53
+
+        // // 3. + 단항 연결 연산자를 이용하는 방법
+        // // 문자열 타입 => 숫자 타입
+        // console.log(+'0');     // 0
+        // console.log(+'-1');    // -1
+        // console.log(+'10.53'); // 10.53
+        
+        // // 불리언 타입 => 숫자 타입
+        // console.log(+true);    // 1
+        // console.log(+false);   // 0
+
+        // // 4. * 산술 연산자를 이용하는 방법
+        // // 문자열 타입 => 숫자 타입
+        // console.log('0' * 1);     // 0
+        // console.log('-1' * 1);    // -1
+        // console.log('10.53' * 1); // 10.53
+        
+        // // 불리언 타입 => 숫자 타입
+        // console.log(true * 1);    // 1
+        // console.log(false * 1);   // 0
+
+
+
+        // // 불리언 타입으로 변환
+        // // 불리언 타입으로 바꾸는 법 - Boolean('x'), !!'x'
+        
+        // // 1. Boolean 생성자 함수를 new 연산자 없이 호출하는 방법
+        // // 문자열 타입 => 불리언 타입
+        // console.log(Boolean('x'));       // true
+        // console.log(Boolean(''));        // false
+        // console.log(Boolean('false'));   // true
+        
+        // // 숫자 타입 => 불리언 타입
+        // console.log(Boolean(0));         // false
+        // console.log(Boolean(1));         // true
+        // console.log(Boolean(NaN));       // false
+        // console.log(Boolean(Infinity));  // true
+        
+        // // null 타입 => 불리언 타입
+        // console.log(Boolean(null));      // false
+        
+        // // undefined 타입 => 불리언 타 입
+        // console.log(Boolean(undefined)); // false
+        
+        // // 객체 타입 => 불리언 타입
+        // // Boolean({})와 Boolean([])는 True이다. -  파이썬이면 False
+        // console.log(Boolean({}));        // true
+        // console.log(Boolean([]));        // true
+
+        // z = Boolean({}) + 5
+        // alert(z)    // 6
+
+        // // 2. ! 부정 논리 연산자를 두번 사용하는 방법
+        // // 문자열 타입 => 불리언 타입
+        // console.log(!!'x');       // true
+        // console.log(!!'');        // false
+        // console.log(!!'false');   // true
+       
+        // // 숫자 타입 => 불리언 타입
+        // console.log(!!0);         // false
+        // console.log(!!1);         // true
+        // console.log(!!NaN);       // false
+        // console.log(!!Infinity);  // true
+        
+        // // null 타입 => 불리언 타입
+        // console.log(!!null);      // false
+        // // undefined 타입 => 불리언 타입
+        // console.log(!!undefined); // false
+        
+        // // 객체 타입 => 불리언 타입
+        // console.log(!!{});        // true
+        // console.log(!![]);        // true
+
+
+
+
+
+
+
+
+        // // 단축 평가
+
+        // 논리계산에서 논리의 참 거짓을 판별하는 변수가 출력 변수가 된다. 
+        // (&&에서 앞이 참이면 뒤에서 판별이 되므로 뒤쪽 내용이 출력)
+        // (||에서 앞이 참이면 뒤와는 상관없이 전부 참이므로 앞 내용이 출력)
+
+        // 'Cat' && 'Dog' --> 'Dog'    둘다 참인 조건에서는 두번째 변수가 판별변수
+        // 'Cat' || 'Dog' --> 'Cat'    둘 중 하나가 참인 조건에서는 첫번째 변수가 판별변수
+        // 논리 계산은 판별 조건을 결정짓는 변수임을 유의
+
+        // 논리곱 연산의 결과를 결정한 것은 두번째 피연산자 ‘Dog’
+        // a = 'Cat' && 'Dog' // “Dog”
+        // document.write(a)
+
+        // b = 'Cat' && 'Dog' && 'Marmot'
+        // document.write(b)   // 'Marmot'
+
+        // c = 'Cat' || 'Dog' // 'Cat'
+        // document.write(c)
+
+
+        // true || anything	    true
+        // false || anything	anything
+        // true && anything	    anything
+        // false && anything	false
+
+
+        // // 논리합(||) 연산자
+        // 'Cat' || 'Dog'  // 'Cat'
+        // false || 'Dog'  // 'Dog'
+        // 'Cat' || false  // 'Cat'
+
+        // // 논리곱(&&) 연산자
+        // 'Cat' && 'Dog'  // Dog
+        // false && 'Dog'  // false
+        // 'Cat' && false  // false
+
+
+
+        // 객체가 null인지 확인하고 프로퍼티를 참조할 때
+        // var elem = null;
+        // console.log(elem.value); // TypeError: Cannot read property 'value' of null - 빈값이라 못읽음
+        // console.log(elem && elem.value); // null - 둘다 비었다
+
+
+
+
+        // // 함수의 인수(argument)를 초기화할 때
+        // // 단축 평가를 사용한 매개변수의 기본값 설정
+        // function getStringLength(str) {
+        //     str = str || '';
+        //     return console.log(str.length);
+        // }
+
+        // getStringLength();     // 0
+        // getStringLength('hi'); // 2
+
+        // // ES6의 매개변수의 기본값 설정
+        // function getStringLength(str = '') {
+        //     return console.log(str.length);
+        // }
+
+        // getStringLength();     // 0
+        // getStringLength('hi'); // 2
+        
+
+
+        // 자바스크립트는 논리연산과 계산의 암묵적 변환에 유의
+        // 향후 디버그시 개발에 어려움을 가져다 줌
+
+
+
+        
+
+
+
+
+        // // 블록문
+        // {
+        //     let foo = 10;
+        //     console.log(foo);
+        // }
+        // let foo = 40;
+        // console.log(foo)
+
+
+
+
+
+        // // while에서 블럭이 있으면 각 실행문마다 출력, 없으면 최종결과만 출력
+        // // 제어문
+        // var x = 0;
+        // while (x < 10){
+        //     x++;
+        //     console.log(x);
+        // }       // 1 ~ 10까지 출력
+
+
+        // var x = 0;
+        // while (x < 10)
+        //     x++;
+        //     console.log(x); // 10만 출력
+
+
+
+
+
+
+
+        // // 함수 선언문
+        // function sum(x, y){
+        //     return x + y;
+        // }
+        // console.log(sum(1, 2))  // 3
+
+
+
+
+
+
+        // // if문
+        // var num = -2;
+        // var kind;
+
+        // // if 문
+        // if (num > 0) {
+        // kind = '양수'; // 음수를 구별할 수 없다
+        // }
+        // console.log(kind); // undefined
+
+        // // if…else 문
+        // if (num > 0) {
+        // kind = '양수';
+        // } else {
+        // kind = '음수'; // 0은 음수가 아니다
+        // }
+        // console.log(kind); // 음수
+
+        // // if…else if 문
+        // if (num > 0) {
+        // kind = '양수';
+        // } else if (num < 0) {
+        // kind = '음수';
+        // } else {
+        // kind = '영';
+        // }
+        // console.log(kind); // 음수
+
+
+        // // 만약 코드 블록 내의 문이 하나뿐이라면 중괄호를 생략할 수 있다.
+        // var num = 2;
+        // var kind;
+        // if (num > 0)      kind = '양수';
+        // else if (num < 0) kind = '음수';
+        // else              kind = '영';
+        // console.log(kind); // 양수
+
+
+
+        // // x가 짝수이면 ‘짝수'를 홀수이면 ‘홀수'를 반환한다.
+        // var x = 2;
+        // var result;
+
+        // if (x % 2) { // 2 % 2는 0이고 0은 false로 취급된다.
+        // result = '홀수';
+        // } else {
+        // result = '짝수';
+        // }
+
+        // console.log(result); // 짝수
+
+
+
+        // // x가 짝수이면 '짝수'를 홀수이면 '홀수'를 반환한다.
+        // var x = 2;
+
+        // // 0은 false로 취급된다.
+        // var result = x % 2 ? '홀수' : '짝수';        // 계산 ? 참조건 : 거짓조건
+        // console.log(result); // 짝수
+
+
+        // var num = 2;
+
+        // // 0은 false로 취급된다.
+        // var kind = num ? (num > 0 ? '양수' : '음수') : '영';
+        // console.log(kind); // 양수
+
+
+
+
+        // // switch문
+        // // switch문은 정수 조건의 if문과 유사함
+        // // 단, while문과 같이 break 조건이 없는 경우 올바른 조건을 찾아도 switch문을 종료시키지 못해서 엉뚱한 결과를 리턴
+        // // 월을 영어로 변환한다. (11 → 'November')
+        // var month = 11;
+        // var monthName;
+
+        // switch (month) {
+        // case 1:
+        //     monthName = 'January';
+        // case 2:
+        //     monthName = 'February';
+        // case 3:
+        //     monthName = 'March';
+        // case 4:
+        //     monthName = 'April';
+        // case 5:
+        //     monthName = 'May';
+        // case 6:
+        //     monthName = 'June';
+        // case 7:
+        //     monthName = 'July';
+        // case 8:
+        //     monthName = 'August';
+        // case 9:
+        //     monthName = 'September';
+        // case 10:
+        //     monthName = 'October';
+        // case 11:
+        //     monthName = 'November';
+        // case 12:
+        //     monthName = 'December';
+        // default:
+        //     monthName = 'Invalid month';
+        // }
+
+        // console.log(monthName); // Invalid month -  폴스루(fall through)
+        // // monthName에 ‘November’가 할당된 후 switch 문을 탈출하지 않고 연이어 ‘December’가 재할당되고 마지막으로 ‘Invalid month’가 재할당되었다.
+
+
+
+        // 각 case마다 break 추가하여 switch문을 탈출할수있다
+        // default문은 switch문의 가장 마지막에 위치하므로 break 필요 없다. 
+        // var month = 11;
+        // var monthName;
+
+        // switch (month) {
+        // case 1:
+        //     monthName = 'January';
+        //     break;
+        // case 2:
+        //     monthName = 'February';
+        //     break;
+        // case 3:
+        //     monthName = 'March';
+        //     break;
+        // case 4:
+        //     monthName = 'April';
+        //     break;
+        // case 5:
+        //     monthName = 'May';
+        //     break;
+        // case 6:
+        //     monthName = 'June';
+        //     break;
+        // case 7:
+        //     monthName = 'July';
+        //     break;
+        // case 8:
+        //     monthName = 'August';
+        //     break;
+        // case 9:
+        //     monthName = 'September';
+        //     break;
+        // case 10:
+        //     monthName = 'October';
+        //     break;
+        // case 11:
+        //     monthName = 'November';
+        //     break;
+        // case 12:
+        //     monthName = 'December';
+        //     break;
+        // default:
+        //     monthName = 'Invalid month';
+        // }
+
+        // console.log(monthName); // November
+
+
+
+
+
+
+
+        // var year = 2000; // 2000년은 윤년으로 2월이 29일이다.
+        // var month = 2;
+        // var days = 0;
+
+        // switch (month) {
+        // case 1: case 3: case 5: case 7: case 8: case 10: case 12:
+        //     days = 31;
+        //     break;
+        // case 4: case 6: case 9: case 11:
+        //     days = 30;
+        //     break;
+        // case 2:
+        //     // 윤년 계산 알고리즘
+        //     // 1. 년도가 4로 나누어 떨어지는 해는 윤년(2000, 2004, 2008, 2012, 2016, 2020…)
+        //     // 2. 그 중에서 년도가 100으로 나누어 떨어지는 해는 평년(2000, 2100, 2200...)
+        //     // 3. 그 중에서 년도가 400으로 나누어 떨어지는 해는 윤년(2000, 2400, 2800...)
+        //     days = ((year % 4 === 0 && year % 100 !== 0) || (year % 400 === 0)) ? 29 : 28;
+        //     break;
+        // default:
+        //     console.log('Invalid month');
+        // }
+
+        // console.log(days); // 29
+
+
+        // if와 switch의 결정적 차이 - switch문은 특정 조건을 찍어야하므로 비교 연산자를 사용하지 못한다.
+        // 가동성에 도움이 되지만 fall through, break, default조건 등 신경써야 할 부분이 많고, 
+        // 비교연산자를 사용하지 못하므로 조건문의 변수가 실수라면 if로 처리하자
+
+
+
+
+
+
+
+
+
+        // for문
+
+        // for (var i = 0; i < 2; i++) {
+        //     console.log(i);
+        // }
+
+        // for (var i = 1; i <= 6; i++) {
+        //     for (var j = 1; j <= 6; j++) {
+        //         if (i + j === 6) console.log(`[${i}, ${j}]`);       // === : 값 뿐 아니라 자료구조까지 일치하는지
+        //     }
+        // }
+
+
+        // // while문
+        // var count = 0;
+
+        // // count가 3보다 작을 때까지 코드 블록을 계속 반복 실행한다.
+        // while (count < 3) {
+        //     console.log(count);
+        //     count++;
+        // } // 0 1 2
+
+
+        // var count = 0;
+
+        // // 무한루프
+        // while (true) {
+        //     console.log(count);
+        //     count++;
+        // // count가 3이면 코드 블록을 탈출한다.
+        //     if (count === 3) break;
+        // } // 0 1 2
+
+
+
+        // // do ~ while문  - 일단 무조건 한번은 실행
+        // var count = 0;
+
+        // // count가 3보다 작을 때까지 코드 블록을 계속 반복 실행한다.
+        // do {
+        //     console.log(count);
+        //     count++;                    // 일단 무조건 한번은 실행
+        // } while (count < 3);            // 0 1 2
+
+
+
+
+        // // 레이블 문(Label statement)이란 식별자가 붙은 문
+        // // foo라는 레이블 식별자가 붙은 레이블 문
+        // foo: console.log('foo');
+
+
+
+        // // foo라는 식별자가 붙은 레이블 블록문
+        // foo: {
+        //     console.log(1);
+        //     break foo; // foo 레이블 블록문을 탈출한다.
+        //     console.log(2);
+        // }
+
+        // console.log('Done!');
+
+
+
+
+        // outer라는 식별자가 붙은 레이블 for 문
+        // outer: for (var i = 0; i < 3; i++) {
+        //     for (var j = 0; j < 3; j++) {
+        //         console.log(i, j)
+        //         // i + j === 3이면 외부 for 문을 탈출한다.
+        //         if (i + j === 3) break outer;
+        //     }
+        // }
+
+        // console.log('Done!');
+
+
+
+        // // outer 위치 바꿀경우 - 외부 for문은 계속 돈다, 내부는 조건이 맞으면 종료
+        // for (var i = 0; i < 7; i++) {
+        //     outer: for (var j = 0; j < 7; j++) {
+        //         console.log(i, j)
+        //         // i + j === 3이면 외부 for 문을 탈출한다.
+        //         if (i + j === 3) break outer;
+        //     }
+        // }
+
+        // console.log('Done!');
+
+
+        // // break outer & inner loop의 차이
+        // // if (i + j === 6) break outer 조건은 외부 for문을 정지 시키므로 for문 전체가 종료
+        // // 그런데 if(i + j === 6) break inner; 조건은 내부 for문을 정지시키므로 외부 for문의 나머지 요소들은 계속 실행
+        // // 외부 for문이 끊임없이 6을 향해 탐색을 지속하므로 for문은 지속되고
+        // // 외부 변수가 6이 되면 정지 조건이 무시되므로 boundary 컨디션에 위배된다.
+
+        
+        // // outer 위치 바꿀경우 - 외부 for문은 계속 돈다, 내부는 조건이 맞으면 종료
+        // outer : for (var i = 0; i < 7; i++) {
+        //     inner: for (var j = 0; j < 7; j++) {
+        //         console.log(i, j)
+        //         // i + j === 3이면 외부 for 문을 탈출한다.
+        //         if (i + j === 3) break outer;
+        //     }
+        // }
+
+
+
+
+        // // break문
+        // var string = 'Hello World.';
+        // var index;
+
+        // // 문자열은 유사배열이므로 for 문으로 순회할 수 있다. - while문은 불가능
+        // for (var i = 0; i < string.length; i++) {
+        //     // 문자열의 개별 문자가 'l'이면
+        //     if (string[i] === 'l') {
+        //         index = i;
+        //         break; // 반복문을 탈출한다.
+        //     }
+        // }
+
+        // console.log(index); // 2
+
+        // // 참고로 String.prototype.indexOf 메소드를 사용해도 같은 동작을 한다.
+        // console.log(string.indexOf('l')); // 2
+
+
+
+        // // continue문
+        // // 위의 break문과 같은 내용
+        // var string = 'Hello World.';
+        // var count = 0;
+
+        // // 문자열은 유사배열이므로 for 문으로 순회할 수 있다.
+        // for (var i = 0; i < string.length; i++) {
+        // // 'l'이 아니면 현 지점에서 실행을 중단하고 반복문의 증감식으로 이동한다.
+        //     if (string[i] !== 'l') continue;
+        //     count++; // continue 문이 실행되면 이 문은 실행되지 않는다.
+        // }
+
+        // console.log(count); // 3
+
+        // // 참고로 String.prototype.match 메소드를 사용해도 같은 동작을 한다.
+        // console.log(string.match(/l/g).length); // 3
+
+
+
+        // for문이 짧으면 break 통한 접근이 좋은 방법이고,
+        // for문의 논리가 복자하다면 케이스 별로 countinue의 활용이 적합하다.
+        // 그 이유는 continue문을 사용하지 않으면 if문 안에 코드를 작성해야 한다.
+        // 그래서 if문 안에 코드를 작성하는 break는 짧을때만 써야한다.
+
+
+        // // continue 문을 사용하지 않으면 if 문 내에 코드를 작성해야 한다.
+        // for (var i = 0; i < string.length; i++) {
+        //     // 'l'이면 카운트를 증가시킨다.
+        //     if (string[i] === 'l') {
+        //         count++;
+        //         // code
+        //         // code
+        //         // code
+        //     }
+        // }
+
+        // // continue 문을 사용면 if 문 밖에 코드를 작성할 수 있다.
+        // for (var i = 0; i < string.length; i++) {
+        //     // 'l'이 아니면 카운트를 증가시키지 않는다.
+        //     if (string[i] !== 'l') continue;
+
+        //     count++;
+        //     // code
+        //     // code
+        //     // code
+        // }
+    </script>
+</body>
+</html>
