@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 전위 연산자 & 후위 연산자
+        // 전위 연산자 --> ++변수 --> 변수의 값을 1증가한 후에 사용
+        // 후위 연산자 --> 변수++ --> 변수의 값을 사용한 후에 1증가
+        var a = 3;
+        var b = a++;
+
+        document.write("a = ", a, "<br>", "b = ", b, "<br>")    // 4, 3
+
+        var c = 3;
+        var d = ++c;
+        
+        document.write("c = ", c, "<br>", "d = ", d, "<br>")    // 4, 4
+    </script>
+</body>
+</html>
