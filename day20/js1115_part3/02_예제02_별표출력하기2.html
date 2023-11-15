@@ -1,0 +1,49 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>Untitled Document</title>
+
+    <script type="text/javascript">
+        /*
+
+        예제 02: 별표 출력하기
+        for문을 이용해 다음 실행화면처럼 출력해 주세요.
+
+        실행화면:
+
+        *****
+        ****
+        ***
+        **
+        *
+
+        */
+        // 풀이 1
+        for(var i = 5; i > 0; i--){
+            document.write("*".repeat(i),"<br>");
+        }
+        
+
+        // 풀이 2
+        for(var i = 0; i < 5; i++){
+            var result = "*****"
+            document.write(result.slice(i),"<br>")
+        }
+
+        // 풀이 3
+        var stars = "*****"
+        for(var i = 0; i < 5; i++){
+            document.write(stars, "<br>");
+            stars = stars.slice(0, -1);
+        }
+
+
+    </script>
+
+</head>
+
+<body>
+
+</body>
+</html>
