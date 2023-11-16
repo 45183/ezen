@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- <script src="jquery-3.6.0.min.js"></script>  같은 경로에 파일이 있는경우	 -->
+    <script src="//code.jquery.com/jquery-3.6.0.min.js"></script> <!-- CDN 이용 -->
+</head>
+
+<body>
+    <script>
+        // jQuery 선택자
+        // 1. 요소 선택자
+        // $("p") // p 태그
+
+        //2. #id 선택자
+        // $("#milk")  // id = milk
+
+        // 3. .class 선택자
+        // $(".milku")  // class = milku
+
+
+
+
+
+        // jQuery 이벤트
+        // click() - 선택 요소 클릭하면 함수 실행
+        // $("p").click(function () {	// <p>요소에서 클릭 이벤트 발생 시 
+        //     $(this).hide();		// 그 <p>요소를 숨깁니다.
+        // });
+
+        // dbclick() - 선택 요소 더블 클릭하면 함수 실행
+        // mouseenter() - 선택 요소에 마우스 포인터가 들어갈 때 함수 실행
+        // $("#p1").mouseenter(function () {		// id가 p1인 요소에 마우스를 올릴 때
+        //     alert("You entered p1!");		// alert창을 띄웁니다.
+        // });
+
+        // mouseleave() - 선택 요소에서 마우스 포인터가 떠날 때 함수 실행
+        // mousedown() - 선택 요소 위에서 마우스 버튼을 누르면 함수 실행
+        // mouseup() - 선택 요소 위에서 마우스 버튼을 놓으면 함수 실행
+        // hover() - mouseenter()와 mouseleave()의 조합
+        // $("#p1").hover(function () {		// id가 p1인 요소에 마우스를 올릴 때 첫 번째 함수 실행
+        //     alert("You entered p1!");
+        // },
+        // function () {				//마우스를 떠날 때 두 번째 함수 실행
+        //     alert("Bye! You now leave p1!");
+        // });
+
+        // focus() - 양식 필드에 포커스가 있을 때 실행 ex)input
+        // blur() - 양식 필드가 포커스를 잃을 때 실행
+        // on() - 선택한 요소에 대해 하나 이상의 이벤트 핸들러를 연결
+        // $("p").on({
+        //     mouseenter: function () {		//마우스 진입 시 함수1 실행
+        //         $(this).css("background-color", "lightgray");
+        //     },
+        //     mouseleave: function () {		//마우스 이탈 시 함수2 실행
+        //         $(this).css("background-color", "lightblue");
+        //     },
+        //     click: function () {			//마우스 클릭 시 함수3 실행
+        //         $(this).css("background-color", "yellow");
+        //     }
+        // });
+
+
+
+
+
+
+        // jQuery 이펙트
+        // 1. 숨김 / 표시
+        // hide() - 선택한 요소 숨김
+        // show() - 선택한 요소 표시
+        // toggle() - 선택한 요소를 숨김/표시 (토글)
+
+        // 2. 페이드
+        // fadeIn() - 선택한 요소를 페이드 인 (서서히 밝아지며 나타남)
+        // fadeOut() - 선택한 요소를 페이드 아웃
+        // fadeToggle() - 선택한 요소를 페이드 인/아웃 (토글)
+
+        // 3. 슬라이딩
+        // slideDown() - 선택한 요소를 아래로 슬라이드
+        // slideUp() - 선택한 요소를 위로 슬라이드
+        // slideToggle() - 토글
+
+        // 4. 애니메이션
+        // animate() - 사용자 지정 애니메이션 만들 수 있음
+
+        // 5. jQuery 중지
+        // stop() - 모든 jQuery 이펙트에 대해 작용, 이펙트가 완료되기 전에 중지
+
+        // 6. jQuery 콜백
+        // 현재 효과가 완료된 후 콜백함수 실행
+        // $( selector ).hide( speed,callback );
+
+        // 7. jQuery 체이닝
+        // 체이닝으로 동일한 요소에서 여러 jQuery 명령을 차례로 실행 - 브라우저가 동일한 요소를 두번 이상 찾을 필요 없음
+        // $("#p1").css("color", "red").slideUp(2000).slideDown(2000);
+        // id가 p1인 요소의 color를 red로 바꾼 후, 위로 슬라이드한 다음, 아래로 슬라이드합니다.
+
+
+
+
+
+
+
+
+        // jQuery HTML
+        // 1. GET
+        // text() - 선택한 요소의 텍스트 내용 반환
+        // html() - 선택한 요소(HTML 마크업 포함)의 내용 반환
+        // val() - 양식 필드의 값(value 속성 값)을 반환
+        
+        // 2. SET
+        // text() - 선택한 요소의 텍스트 내용 설정
+        // html() - 선택한 요소(HTML 마크업 포함)의 내용 설정
+        // val() - 양식 필드의 값(value 속성 값)을 설정
+        
+        // 3. 추가 - 선택한 요소의 앞 또는 뒤에 내용 추가
+        // append() - 선택한 HTML 요소 끝 부분에 내용 추가
+        // prepend() - 선택한 HTML 요소 시작 부분에 내용 추가
+        // after() - 선택한 HTML 요소 뒤에 내용 추가
+        // before() - 선택한 HTML 요소 앞에 내용 추가
+
+        // 4. 제거
+        // remove() - 선택한 요소와 그 자식 요소 모두 제거
+        // empty() - 선택한 요소의 자식 요소를 제거
+
+        // 5. CSS 클래스 조작
+        // addClass() - 선택한 요소에 하나 이상의 클래스를 추가
+        // removerClass() - 선택한 요소에서 하나 이상의 클래스 제거
+        // toggleClass() - 선택한 요소에서 클래스 추가/제거 사이 전환
+        // css() - 스타일 속성 설정하거나 반환
+
+        // 6. 높이, 너비
+        // width(), heigth()
+        </script>
+</body>
+
+</html>

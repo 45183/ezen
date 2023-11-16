@@ -1,0 +1,30 @@
+ <!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<title> 선택자 </title>  
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<script>
+$(function(){
+	// $("*").not('h1, div:last, p').css({"border":"1px dashed blue"});
+	// $("section:nth-child(3)").css({"border":"1px dashed red"});
+
+	$(".txt1").parents().css({"border":"1px dashed blue"});
+	$(".txt2").parents("div").css({"border":"1px dashed red"});
+});
+</script>
+</head>
+<body>
+	<h1 class="title">선택자</h1>
+	<section>
+		<div>
+			<p class="txt1">내용</p>
+		</div>
+	</section>
+	<section>
+		<div>
+			<p class="txt2">내용</p>
+		</div>
+	</section>
+</body>
+</html>
