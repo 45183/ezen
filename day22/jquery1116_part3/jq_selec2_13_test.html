@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<title> 탐색 선택자 </title>  
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<script>
+$(function(){
+	// $('#outer_wrap > h1, section').css({"border":"1px dashed black"});
+	$('#outer_wrap').contents().css({"border":"1px dashed black"});
+	// $('#inner_1 p:first').css({"background-color":"#ff0"});
+	$('#inner_1 p:contains(내용1)').css({"background-color":"#ff0"});
+	// $('#inner_1 p:odd').css({"background-color":"#0ff"});
+	$('#inner_1 p:has(strong)').css({"background-color":"#0ff"});
+	// $('#inner_2 p').css({"color":"#f00"});
+	$('#inner_2 p').eq(2).end().css({"color":"#f00"});
+	// $('#inner_2 p:gt(0)').css({"background-color":"green"});
+	$('#inner_2 p').not(':first').css({"background-color":"green"});	// 첫번째 제외 나머지
+});
+</script>
+</head>
+<body>
+	<div id="outer_wrap">
+		<h1>콘텐츠 탐색 선택자</h1>
+		<section id="inner_1">
+			<h1>contains( ), contents( ), has( )</h1>
+			<p><span>내용1</span></p>
+			<p><strong>내용2</strong></p>
+			<p><span>내용3</span></p>
+		</section>
+		<section id="inner_2">
+			<h1>not( ), end( )</h1>
+			<p>내용4</p>
+			<p>내용5</p>
+			<p>내용6</p>
+		</section>
+	</div>
+</body>
+</html>

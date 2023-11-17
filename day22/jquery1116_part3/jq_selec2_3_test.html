@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<title> 탐색 선택자 </title>  
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<script>
+$(function(){
+	// $('li').prev().prev().prev().css({"background-color":"lightblue"})
+	$('li:lt(2)').css({"background-color":"lightblue"})		// 앞에서 두개
+	// $('li:nth-child(3)').css({"background-color":"yellow"})
+	$('li').eq(2).css({"background-color":"yellow"})		// eq(2) -> 0부터 카운트해서 2
+	// $('li').next().next().next().css({"background-color":"purple"})
+	$('li:gt(2)').css({"background-color":"purple"})		// 뒤에서 두개
+});
+</script>
+</head>
+<body>
+	<h1>탐색 선택자</h1>
+	<ul id="menu">
+		<li>내용1</li>
+		<li>내용2</li>
+		<li>내용3</li>
+		<li>내용4</li>
+		<li>내용5</li>
+	</ul>
+</body>
+</html>

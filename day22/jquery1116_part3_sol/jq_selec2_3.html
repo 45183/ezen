@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<title> 탐색 선택자 </title>  
+<script src="js/jquery.js"></script>
+<script>
+	// $("#menu li").eq(2)은 선택한 리스트 아이템 중에서 
+	// 인덱스가 2인 (0부터 시작하는 인덱스) 요소를 선택합니다. 그리고 선택한 요소에 background-color 속성을 #ff0로 설정하여 
+	// 배경색을 노란색으로 만듭니다.
+	// $("#menu li:lt(2)")는 선택한 리스트 아이템 중에서 인덱스가 2보다 작은(0번째와 1번째) 요소를 선택합니다. 
+	// 이 선택한 요소들에 대해 background-color 속성을 #0ff로 설정하여 배경색을 파란색으로 만듭니다.
+	// $("#menu li:gt(2)")는 선택한 리스트 아이템 중에서 인덱스가 2보다 큰(3번째부터 끝까지) 요소를 선택합니다. 
+	// 이 선택한 요소들에 대해 background-color 속성을 #f0f로 설정하여 배경색을 자홍색으로 만듭니다.
+
+
+
+	$(function(){
+		$("#menu li").eq(2)
+		.css({"background-color":"#ff0"});
+
+		$("#menu li:lt(2)")
+		.css({"background-color":"#0ff"});
+
+		$("#menu li:gt(2)")
+		.css({"background-color":"#f0f"});
+	});
+</script>
+</head>
+<body>
+	<h1>탐색 선택자</h1>
+	<ul id="menu">
+		<li>내용1</li>
+		<li>내용2</li>
+		<li>내용3</li>
+		<li>내용4</li>
+		<li>내용5</li>
+	</ul>
+</body>
+</html>

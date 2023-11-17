@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset = "UTF-8">
+<title> 날짜 정보 객체 </title>
+<script>
+	var today = new Date();									// 날짜 객체 생성
+	var nowYear = today.getFullYear();						// 2023년
+
+	var theDate = new Date(nowYear, 11, 31);				// 2023년, 12월(0~11표기), 31일
+	var diffDate = theDate.getTime() - today.getTime(); 	// 올해 남은 시간 - 현재 시간(밀리초 단위)
+
+	var result = Math.ceil(diffDate / (60 * 1000 * 60 * 24)); // 1ms * 1000 * 60 * 60 * 24 = 1day // Math.ceil - 소수점 이하 올림
+	document.write("<h1>오늘부터 올해 연말까지 남은 날짜</h1>")
+	document.write("D-day : " + result + "일 남았습니다.");
+</script>
+</head>
+<body>
+</body>
+</html>
