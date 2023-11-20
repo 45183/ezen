@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset = "UTF-8">
+<title> 함수 </title>
+<script>
+	// name, height, weight를 인풋으로 받는 CheckWeight 함수를 선언합니다.
+	// name, height, weight는 함수의 객체에 각각 정해진 이름으로 저장됩니다.
+	function CheckWeight(name, height, weight) {
+		this.userName = name;
+		this.userHeight = height;
+		this.userWeight = weight;
+		this.minWeight;
+		this.maxWeight;
+		// 파이썬 클래스와 유사한 형태로 해당 함수내에 getInfo라는 함수가 선언
+		// 여기서 이름, 키, 몸무게에 대한 정보를 받습니다.
+
+		this.getInfo = function() {
+			var str = ""
+				str += "이름: " + this.userName + ", ";
+				str += "키: " + this.userHeight + ", ";
+				str += "몸무게: " + this.userWeight + "<br>";
+				return  str;
+		}
+		// 파이썬 클래스와 유사한 형태로 해당 함수내에 getResult라는 함수가 선언
+		// 여기서 정상범위 체중을 키와 몸무게를 이용하여 구합니다.
+		this.getResult = function( ) {
+			this.minWeight = (this.userHeight - 100) * 0.9 - 5;
+			this.maxWeight = (this.userHeight - 100) * 0.9 + 5;
+
+			if(this.userWeight >= this.minWeight && 
+			this.userWeight <= this.maxWeight) {
+				return "정상 몸무게입니다";
+			} else if(this.userWeight < this.minWeight) {
+				return "정상 몸무게보다 미달입니다";
+			} else {
+				return "정상 몸무게보다 초과입니다";
+			}
+		}
+	}
+	// 객체에 변수를 저장하는 방식의 함수는 객체에 선언하여 지정된 변수에 저장
+	var jang = new CheckWeight("장보리", 168, 62);
+	var park = new CheckWeight("박달재", 180, 88);
+	console.log(jang);
+	console.log(park);
+	// 선언된 객체에서 하위 함수를 불러서 원하는 작업을 진행 합니다.
+	document.write(jang.getInfo());
+	document.write(jang.getResult());
+</script>
+</head>
+<body>
+</body>
+</html>

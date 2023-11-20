@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset = "UTF-8">
+<title> 함수 </title>
+<style>
+	*{margin: 0;padding: 0;}
+	#galleryZone {text-align: center;}
+	#galleryZone input[type="image"]{margin:0 8px;}
+</style>
+<script>
+	var num = 1;
+	// 마우스 버튼에 따라 direct인풋이 1이면 참으로 num++를 타고 그림번호가 증가하고
+	// direct인풋이 0이면 거짓으로 else로직을 타고 num--를 타고 그림번호가 감소해요.
+	function gallery(direct) {
+		if(direct) {
+			if(num == 8) return;
+			num++
+			console.log(num);
+		} else {
+			if(num == 1) return;
+			num--
+			console.log(num);;
+		}
+	// num에 부여된 번호에 맞게 사진 파일이 인덱싱 되어 해당 사진으로 출력됨
+		var imgTag = document.getElementById("photo");
+		imgTag.setAttribute("src","images/pic_" + num + ".jpg");
+	}
+</script>
+</head>
+<body>
+	<div id="galleryZone">
+		<p><img src="images/pic_1.jpg" id="photo" alt=""></p>
+		<p>
+			<button onclick="gallery(0)">이전</button>
+			<button onclick="gallery(1)">다음</button>
+		</p>
+	</div>
+</body>
+</html>

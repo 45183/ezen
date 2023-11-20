@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset = "UTF-8">
+<title> 함수 </title>
+<script>
+	var num = 0;
+	function testFnc(){
+		// for(var i = 0; i < 10; i++){
+		// 	++num;
+		// 	document.write(num, "<br>")
+		// }
+
+
+
+		// for문 사용하지 않고 재귀함수 사용하여 자기자신을 순차적으로 출력
+		// 재귀함수는 종료조건이 명확하지 않아 잘못사용하면 무한루프 발생
+		num++;
+		document.write(num, "<br>");
+		if(num == 10) return;	// break와 같음
+
+		testFnc();
+	}
+	
+	testFnc();
+</script>
+</head>
+<body>
+</body>
+</html>

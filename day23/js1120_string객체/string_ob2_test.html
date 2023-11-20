@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset = "UTF-8">
+<title> 문자 객체 </title>
+<script>
+    var name = prompt("영문이름을 입력하세요");
+    var upperName = name.toUpperCase();
+    document.write(upperName, "<br>");
+
+
+    var num = prompt("연락처를 입력하세요")
+    var result = num.substring(0, num.length -4) + "****"
+    document.write(result, "<br>")
+    // var number = num.split('-');
+    // number[2] = number[2].replace('xxxx');   // 수정해야함
+    // document.write(number[2])
+    // number = number.join('-');
+    // document.write(number)
+</script>
+</head>
+<body>
+</body>
+</html>

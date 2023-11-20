@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset = "UTF-8">
+<title> 문자 객체 </title>
+<script>
+	var userEmail = prompt("당신의 이메일 주소는?", "");
+	var arrUrl = [".co.kr", ".com", ".net", ".or.kr", ".go.kr"];
+
+	var check1 = false;
+	var check2 = false;
+
+	// var email1 = userEmail.substr(-4, 4);
+	// var email2 = userEmail.substr(-6, 6);
+
+	// for(i = 0; i < arrUrl.length; i++){
+	// 	if(arrUrl[i] == email1){
+	// 		check1 = true;
+	// 	} else if(arrUrl[i] == email2){
+	// 		check1 = true;
+	// 	}
+	// }
+
+	// var email = userEmail.split('');
+	// for(i = 0; i < email.length; i++){
+	// 	if(email[i] == '@'){
+	// 		check2 = true;
+	// 	}
+	// }
+
+	if(userEmail.indexOf("@") > 0){
+		check1 = true;
+	}
+
+	for(var i = 0; i < arrUrl.length; i++){
+		if(userEmail.indexOf(arrUrl[i]) > 0){
+			check2 = true;
+		}
+	}
+
+	if(check1 && check2){
+		document.write(userEmail);
+	} else{
+		alert("이메일 형식이 잘못되었습니다.");
+	}
+</script>
+</head>
+<body>
+</body>
+</html>
