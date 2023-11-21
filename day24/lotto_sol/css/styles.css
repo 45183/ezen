@@ -1,0 +1,20 @@
+.ball {
+    display: inline-block;
+    width: 80px;
+    height: 80px;
+    background-color: #FFC107;
+    border-radius: 50%;
+    line-height: 86px;
+    font-size: 50px;
+    margin: 5px;
+    text-align: center;
+}
+
+/* display: inline-block;: 요소를 인라인 박스와 같이 처리하지만, 다른 요소와 함께 블록 요소처럼 배치됩니다.
+width: 80px;와 height: 80px;: 공의 너비와 높이를 80px로 설정합니다.
+background-color: #FFC107;: 공의 배경 색상을 주황색으로 설정합니다.
+border-radius: 50%;: 원 모양을 만들기 위해 테두리를 둥글게 처리합니다.
+line-height: 86px;: 텍스트 내용의 높이를 조정하여 텍스트를 공의 중앙에 정렬합니다.
+font-size: 50px;: 텍스트의 글꼴 크기를 50px로 설정합니다.
+margin: 5px;: 공 주위의 마진을 5px로 설정하여 다른 요소와의 간격을 만듭니다.
+text-align: center;: 텍스트를 가운데 정렬합니다. */

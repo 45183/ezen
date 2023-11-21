@@ -1,0 +1,157 @@
+.container {
+    width: 700px;
+    margin: 50px auto 80px;
+}
+
+.header {
+    border: 4px solid #ff9536;
+    border-radius: 14px;
+}
+
+.title {
+    display: inline-block;
+    margin: 10px 20px;
+    font-size: 20px;
+    color: #bd5a00;
+}
+
+.search {
+    display: inline-block;
+    float: right;
+    margin: 7px;
+}
+
+#txt-search {
+    width: 300px;
+    height: 30px;
+    border: 1px solid #ffecd9;
+    border-radius: 7px;
+    background-color: #fff6eb;
+    box-sizing: border-box;
+    vertical-align: middle;
+    outline: none;
+    text-indent: 10px;
+    font-size: 17px;
+}
+
+.btn-search {
+    width: 70px;
+    height: 30px;
+    border: 1px solid #cacaca;
+    border-radius: 7px;
+    background-color: #fff;
+    margin-left: 3px;
+    vertical-align: middle;
+    outline: none;
+    cursor: pointer;
+}
+
+.total {
+    margin: 20px 10px 7px;
+    font-size: 13px;
+    color: #bd5a00;
+}
+
+#item-template {
+    display: none;
+}
+
+.item {
+    padding: 10px 20px;
+    border: 1px solid #d2d2d2;
+    border-radius: 14px;
+    margin-bottom: 10px;
+}
+
+.item-no {
+    display: inline-block;
+    padding-left: 10px;
+    padding-right: 10px;
+    font-size: 30px;
+    color: #a0a0a0;
+    vertical-align: middle;
+    min-width: 17px;
+}
+
+.item-detail {
+    display: inline-block;
+    margin-left: 10px;
+    vertical-align: middle;
+}
+
+.item-name {
+    font-size: 20px;
+}
+
+.item-addr {
+    font-size: 14px;
+    color: #909090;
+    margin-top: 2px;
+}
+
+.paging {
+    text-align: center;
+    margin-top: 23px;
+}
+
+.paging a {
+    text-decoration: none;
+    margin-right: 8px;
+    color: #bd5a00;
+}
+
+.paging a.current {
+    font-weight: bold;
+    color: #ffb500;
+}
+
+.paging a.prev {
+    margin-right: 15px;
+}
+
+.paging a.next {
+    margin-left: 7px;
+}
+
+/* 전체 컨테이너 스타일 .container
+
+width: 700px;: 컨테이너의 너비를 700px로 설정합니다.
+margin: 50px auto 80px;: 상단 여백 50px, 좌우 중앙 정렬, 하단 여백 80px을 설정하여 컨테이너의 위치를 조정합니다.
+헤더 스타일 .header
+
+border: 4px solid #ff9536;: 헤더에 4px 너비의 오렌지(border-color: #ff9536) 테두리를 적용합니다.
+border-radius: 14px;: 헤더의 모서리를 둥글게 만들어 부드러운 외형을 만듭니다.
+제목 스타일 .title
+
+display: inline-block;: 제목 요소를 인라인 블록으로 표시하여 텍스트와 인라인 요소가 같은 줄에 나타나도록 합니다.
+margin: 10px 20px;: 상단과 하단 10px, 좌우 20px의 마진을 설정하여 제목 요소 주변의 여백을 조정합니다.
+font-size: 20px;: 제목 텍스트의 글꼴 크기를 20px로 설정합니다.
+color: #bd5a00;: 텍스트 색상을 주황색 계열(#bd5a00)으로 지정합니다.
+검색 스타일 .search
+
+display: inline-block;: 검색 요소를 인라인 블록으로 표시합니다.
+float: right;: 오른쪽으로 부유(floating)시켜 우측에 배치합니다.
+margin: 7px;: 검색 요소 주변의 마진을 7px로 설정합니다.
+검색 입력 필드 스타일 #txt-search
+
+width: 300px;: 검색 입력 필드의 너비를 300px로 설정합니다.
+height: 30px;: 검색 입력 필드의 높이를 30px로 설정합니다.
+border: 1px solid #ffecd9;: 검색 입력 필드에 연한 주황색(border-color: #ffecd9)의 1px 두께 테두리를 적용합니다.
+border-radius: 7px;: 검색 입력 필드의 모서리를 둥글게 만듭니다.
+background-color: #fff6eb;: 검색 입력 필드의 배경색을 연한 주황색(#fff6eb)으로 설정합니다.
+box-sizing: border-box;: 테두리와 여백이 요소의 크기에 포함되도록 박스 크기를 조정합니다.
+vertical-align: middle;: 수직으로 가운데 정렬합니다.
+outline: none;: 포커스 효과를 제거합니다.
+text-indent: 10px;: 텍스트를 10px 만큼 들여씁니다.
+font-size: 17px;: 글꼴 크기를 17px로 설정합니다.
+검색 버튼 스타일 .btn-search
+
+width: 70px;: 검색 버튼의 너비를 70px로 설정합니다.
+height: 30px;: 검색 버튼의 높이를 30px로 설정합니다.
+border: 1px solid #cacaca;: 검색 버튼에 연한 회색(border-color: #cacaca)의 1px 두께 테두리를 적용합니다.
+border-radius: 7px;: 검색 버튼의 모서리를 둥글게 만듭니다.
+background-color: #fff;: 검색 버튼의 배경색을 흰색(#fff)으로 설정합니다.
+margin-left: 3px;: 왼쪽 마진을 3px로 설정하여 검색 입력 필드와의 간격을 조절합니다.
+vertical-align: middle;: 수직으로 가운데 정렬합니다.
+outline: none;: 포커스 효과를 제거합니다.
+cursor: pointer;: 마우스 커서를 포인터로 변경하여 클릭 가능한 요소임을 나타냅니다. */
