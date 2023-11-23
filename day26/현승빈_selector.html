@@ -68,13 +68,12 @@
         </div>
     </div>
     <script>
-        let generateNum = document.querySelector(".countNumber");
-        let button = document.querySelector(".generate");
-
+        var generateNum = document.querySelector(".countNumber");
+        var button = document.querySelector(".generate");
+        var num = 21;
+        
         function generator(){
-            const randomNum = Math.floor(Math.random() * 21 + 1);
-            //Math.random 0~1 사이의 난수 생성
-            //Math.floor 소수점을 내림시켜 정수로 만듦
+            var randomNum = Math.ceil(Math.random() * num);
             generateNum.innerHTML = randomNum;
         }
 
