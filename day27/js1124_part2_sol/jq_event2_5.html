@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<title> 이벤트 </title>  
+<script src="js/jquery.js"></script>
+<script>
+// 페이지가 로드되면 실행될 함수를 정의합니다.
+$(function(){
+	// 클래스가 "menuWrap_1"인 요소 내의 링크(a)를 클릭할 때의 이벤트 핸들러를 설정합니다.
+	$(".menuWrap_1 a").on("click", function(e) {
+		e.preventDefault(); // 링크 클릭 시 기본 동작(페이지 이동)을 막습니다.
+
+		// 모든 ".menuWrap_1 a" 요소의 배경색을 흰색(#fff)으로 설정합니다.
+		$(".menuWrap_1 a").css({"background-color":"#fff"});
+
+		// 현재 클릭한 링크(a)의 배경색을 노란색(#ff0)으로 변경합니다.
+		$(this).css({"background-color":"#ff0"});
+	});
+
+	// 클래스가 "menuWrap_2"인 요소 내의 링크(a)를 클릭할 때의 이벤트 핸들러를 설정합니다.
+	$(".menuWrap_2 a").on("click", function(e) {
+		e.preventDefault(); // 링크 클릭 시 기본 동작(페이지 이동)을 막습니다.
+
+		// 모든 ".menuWrap_2 a" 요소의 배경색을 흰색(#fff)으로 설정합니다.
+		$(".menuWrap_2 a").css({"background-color":"#fff"});
+
+		// 클릭한 링크(a)의 인덱스를 찾아서 idx 변수에 저장합니다.
+		var idx = $(".menuWrap_2 a").index(this);
+
+		// 인덱스와 일치하는 ".menuWrap_2 a" 요소의 배경색을 하늘색(#0ff)으로 변경합니다.
+		$(".menuWrap_2 a").eq(idx).css({"background-color":"#0ff"});
+		
+		// 페이지에 클래스가 "idxNum"인 요소에 인덱스 값을 텍스트로 표시합니다.
+		$(".idxNum").text(idx);
+	});
+});
+
+</script>
+</head>
+<body>
+<h2>$(this)</h2>
+<ul class="menuWrap_1">
+				<li><a href="#">메뉴1</a></li>
+				<li><a href="#">메뉴2</a></li>
+				<li><a href="#">메뉴3</a></li>
+</ul>
+<h2>Index( )</h2>   
+<ul class="menuWrap_2">
+				<li><a href="#">메뉴4</a></li>
+				<li><a href="#">메뉴5</a></li>
+				<li><a href="#">메뉴6</a></li>
+</ul>
+<p class="idxNum"></p>
+</body>
+</html>

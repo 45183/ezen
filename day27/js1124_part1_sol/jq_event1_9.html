@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<title> 이벤트 </title>  
+<script src="js/jquery.js"></script>
+<script>
+// 윈도우 스크롤 이벤트를 감지하고 처리하는 함수를 연결
+$(window).on("scroll", function() {
+    // 현재 스크롤의 세로 위치를 가져와 sc_top 변수에 저장
+    var sc_top = $(this).scrollTop();
+    
+    // 현재 스크롤의 가로 위치를 가져와 sc_left 변수에 저장
+    var sc_left = $(this).scrollLeft();
+
+    // 세로 스크롤 위치를 .top 클래스를 가진 요소에 텍스트로 출력
+    $(".top").text(sc_top);
+    
+    // 가로 스크롤 위치를 .left 클래스를 가진 요소에 텍스트로 출력
+    $(".left").text(sc_left);
+});
+
+</script>
+<style>
+	body{
+		height:10000px;
+		width:5000px;
+	}
+	#wrap{
+		position: fixed;
+		left: 10px; top: 10px;
+	}
+</style>
+</head>
+<body>
+<div id="wrap">
+	<p>scrollTop: <span class="top">0</span>px</p>
+	<p>scrollLeft: <span class="left">0</span>px</p>
+</div>
+</body>
+</html>

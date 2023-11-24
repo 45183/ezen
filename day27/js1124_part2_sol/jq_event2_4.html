@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<title> 이벤트 </title>  
+<script src="js/jquery.js"></script>
+<script>
+// 페이지가 로드되면 실행될 함수를 정의합니다.
+$(function(){
+	// 문서(document)에서 keydown 이벤트가 발생하면 keyEventFnc 함수를 호출합니다.
+	$(document).on("keydown", keyEventFnc);
+	// keyEventFnc 함수 정의
+	function keyEventFnc(e) {
+		var direct = ""; // 방향 값을 저장할 변수를 초기화합니다.
+		// 누른 키의 keyCode에 따라서 방향을 결정합니다.
+		switch(e.keyCode){
+			case 37: direct = "LEFT"; // 왼쪽 화살표 키를 누르면 "LEFT"를 할당합니다.
+			break;
+			case 38: direct = "TOP"; // 위쪽 화살표 키를 누르면 "TOP"을 할당합니다.
+			break;
+			case 39: direct = "RIGHT"; // 오른쪽 화살표 키를 누르면 "RIGHT"를 할당합니다.
+			break;
+			case 40: direct = "BOTTOM"; // 아래쪽 화살표 키를 누르면 "BOTTOM"을 할당합니다.
+			break;
+		}
+		// direct 변수에 값이 있을 경우, "#user_id" 요소의 값을 해당 방향으로 변경합니다.
+		if(direct) $("#user_id").val(direct);
+	}
+});
+
+</script>
+</head>
+<body>
+	<p><input type="text" name="user_id" id="user_id"></p>
+</body>
+</html>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<title> 이벤트 </title>  
+<script src="js/jquery.js"></script>
+<script>
+$(function() {
+    // jQuery의 $(document).ready()를 사용하여 문서가 준비될 때 실행되는 코드 블록입니다.
+    // 이 블록 내에서는 DOM 요소들을 조작하거나 초기화 작업을 수행할 수 있습니다.
+    $(document).ready(function(){
+        // 이미지 요소의 클래스가 "img1"인 요소의 높이를 가져옵니다.
+        var h1 = $(".img1").height();
+        // 콘솔에 "ready"와 함께 높이를 출력합니다.
+        console.log("ready :", h1);
+    });
+
+    // $(window).load()를 사용하여 모든 리소스가 로드된 후 실행되는 코드 블록입니다.
+    // 이 블록 내에서는 이미지가 완전히 로드된 후에 관련 작업을 수행할 수 있습니다.
+    $(window).load(function(){
+        // 이미지 요소의 클래스가 "img1"인 요소의 높이를 가져옵니다.
+        var h2 = $(".img1").height();
+        // 콘솔에 "load"와 함께 높이를 출력합니다.
+        console.log("load :", h2);
+    });   
+});
+</script>
+</head>
+<body>
+	<p>
+		<img src="http://place-hold.it/300X300" class="img1">
+	</p>
+</body>
+</html>

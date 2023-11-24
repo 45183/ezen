@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<title> 이벤트 </title>  
+<script src="js/jquery.js"></script>
+<script>
+$(function(){
+        // 문서가 준비되면 실행되는 함수
+        $("#rel_site").on("change", function(){
+            // id가 "rel_site"인 선택 요소에서 변경 이벤트가 발생하면 실행되는 함수
+            // 현재 선택한 옵션의 값을 가져와서, 
+            // 클래스가 "txt"인 요소의 텍스트로 설정합니다.
+            $(".txt").text($(this).val());
+        });
+    });
+</script>
+</head>
+<body>
+    <!-- 선택 옵션을 나열한 드롭다운 목록 -->
+    <select id="rel_site">
+        <option value="">사이트 선택</option>
+        <option value="www.google.com">구글</option>
+        <option value="www.naver.com">네이버</option>
+        <option value="www.daum.net">다음</option>
+    </select>
+    
+    <!-- 선택한 옵션의 값을 보여주는 텍스트를 출력할 요소 -->
+    <p class="txt"></p>
+</body>
+</html>

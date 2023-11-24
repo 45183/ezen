@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<title> 이벤트 </title>  
+<script src="js/jquery.js"></script>
+<script>
+// 페이지가 로드될 때 실행되는 함수
+$(function() {
+    // ID가 "box_1"인 요소에 대한 마우스 이벤트 처리
+    $("#box_1").on("mouseout", function(){
+        // 마우스가 "box_1" 위에서 벗어날 때 발생하는 이벤트
+        // "box_1" 요소의 배경색을 노란색으로 변경
+        $("#box_1").css({"background-color":"yellow"});
+    });
+
+    // ID가 "box_2"인 요소에 대한 마우스 이벤트 처리
+    $("#box_2").on("mouseleave", function(){
+        // 마우스가 "box_2" 요소를 빠져나갈 때 발생하는 이벤트
+        // "box_2" 요소의 배경색을 분홍색(pink)으로 변경
+        $("#box_2").css({"background-color":"pink"});
+    });
+});
+
+</script>
+</head>
+<body>
+<h1>mouseout</h1>
+<div id="box_1">
+				<p><a href="#">내용1</a></p>
+				<p><a href="#">내용2</a></p>
+				<p><a href="#">내용3</a></p>
+</div>
+
+<h1>mouseleave</h1>
+<div id="box_2">
+				<p><a href="#">내용4</a></p>
+				<p><a href="#">내용5</a></p>
+				<p><a href="#">내용6</a></p>
+</div>
+</body>
+</html>

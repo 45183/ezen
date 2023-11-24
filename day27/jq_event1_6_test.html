@@ -6,6 +6,16 @@
 <script src="js/jquery.js"></script>
 <script>
 $(function( ) {
+	$(".btn1").on({
+		"mouseover focus": function(){$(".txt1").css({"background":"#0ff"})},
+		"mouseout blur": function(){$(".txt1").css({"background" : "none"})}
+	});
+	$(".btn2").hover(function(){
+		$(".txt2").css({"background":"aqua"});
+	}, function(){
+		$(".txt2").css({"background":"none"});
+	}
+	);
 	
 });
 </script>
