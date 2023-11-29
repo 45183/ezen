@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        table > tr > th {color:red}  /* 적용되지 않음 f12로 확인해보면 table과 tr 사이에 tbody가 생성되어있음 */
+        table > tbody > tr > th {color:red} /* 코드상 에러가 없을때는 f12로 확인해볼것 */  
+    </style>
+</head>
+<body>
+    <table border="1">
+        <tr>
+            <th>Name</th>
+            <th>Region</th>
+        </tr>
+        <tr>
+            <td>윤인성</td>
+            <td>서울 특별시 강서구</td>
+        </tr>
+    </table>
+</body>
+</html>
