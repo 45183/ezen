@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS3 Selector Basic</title>
+    <style>
+        input[type="checkbox"]:checked + div{
+            height: 0px;
+        }
+
+        div {
+            overflow: hidden;
+            width: 650px;
+            height: 300px;
+            -ms-transition-duration: 1s;
+            -webkit-transition-duration: 1s;
+            -moz-transition-duration: 1s;
+            transition-duration: 1s;
+        }
+    </style>
+</head>
+
+<body>
+    <input type="checkbox" />
+    <div>
+        <h1>Lorem ipsum</h1>
+        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Qui consequatur a sapiente nobis modi, eligendi
+            ratione maxime exercitationem, quas, assumenda repellat quidem voluptate perspiciatis totam architecto amet
+            necessitatibus inventore consequuntur. Lorem ipsum dolor sit amet consectetur, adipisicing elit. Tempore,
+            nihil? Fuga iste assumenda magni fugiat exercitationem aut, minima hic quo animi quia optio? Commodi saepe a
+            ducimus ratione, nihil temporibus!</p>
+    </div>
+</body>
+
+</html>

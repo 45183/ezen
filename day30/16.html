@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div{
+            margin: 10px; padding: 10px;
+            width: 100px; height: 100px;
+            border: 10px solid black;
+        }
+        div:first-of-type{
+            background: red;
+            box-sizing: content-box;
+        }
+        div:last-of-type{
+            background: orange;
+            box-sizing: border-box;
+        }
+        /*
+        content-box : 너비 = width + 2*(margin+border+padding) / 높이 = height + 2*(margin+border+padding) 
+        border-box : 너비 = width + 2*margin  높이 = height + 2*margin
+         */
+    </style>
+</head>
+<body>
+    <div></div>
+    <div></div>
+</body>
+</html>
