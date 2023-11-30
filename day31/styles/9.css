@@ -1,0 +1,82 @@
+/* 계층적 순서로 전체 레벨부터 하위 디테일 순으로 css 작성하는게 좋음. */
+/* 구체적이면서 나중에 선언되는 css가 우선순위를 가지므로 순위가 낮은 친구가 위에와야 
+상속과 우선순위의 개념에서 페이지가 꼬이지 않는다. */
+
+body{
+    background-color: seashell;
+    text-align: center;
+    color: slategray;
+}
+
+#box{
+    border: 3px solid black;
+    margin: 100px auto 30px;
+    padding-top: 100px;
+    width: 500px;
+    border-radius: 10px;
+    background-color: rgba(165, 42, 42, 0.8);
+}
+
+img{
+    border-radius: 50%;
+    width: 150px;
+    position: absolute;
+    right: 43%;
+    top: 3%;
+    
+}
+
+h1{
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 1.2em;
+    color: black;
+}
+
+#large{
+    color: darkgray;
+    font-size: 2em;
+    font-family: 'Fira Sans', sans-serif;
+}
+
+a{
+    font-family: 'Fira Sans', sans-serif;
+    text-decoration: none;
+    color: brown;
+}
+
+a:hover{
+    text-decoration: underline;
+}
+
+#largebox{
+    color: black;
+    margin: 50px auto;
+    text-align: center;
+    width: 270px;
+}
+
+#box2{
+    margin: auto;
+    background-color: rgba(165, 42, 42, 0.8);
+    border: 1px solid black;
+    border-radius: 20px;
+    margin: 20px;
+    width: 200px;
+    padding: 10px;
+}
+
+#box2 > h1{
+    font-size: 1em;
+}
+
+#box2 > p{
+    font-size: 0.7em;
+}
+
+#box3{
+    border: 1px solid black;
+    background-color: rgba(165, 42, 42, 1);
+    color: white;
+    border-radius: 5px;
+    padding: 5px;
+}

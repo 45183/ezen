@@ -1,0 +1,27 @@
+/* 계층적 순서로 전체 레벨부터 하위 디테일 순으로 css 작성하는게 좋음. */
+/* 구체적이면서 나중에 선언되는 css가 우선순위를 가지므로 순위가 낮은 친구가 위에와야 
+상속과 우선순위의 개념에서 페이지가 꼬이지 않는다. */
+
+body{
+    background-color: antiquewhite;
+    text-align: center;
+    color: burlywood;
+}
+
+h1{
+    font-family: 'Times New Roman', Times, serif;
+}
+
+p{
+    font-family: 'Fira Sans', sans-serif;
+}
+
+a{
+    font-family: 'Fira Sans', sans-serif;
+    text-decoration: none;
+    color: brown;
+}
+
+a:hover{
+    text-decoration: underline;
+}

@@ -1,0 +1,30 @@
+h1{
+font-size: 48px;
+color: rgb(73, 72, 72);
+}
+
+a{
+    background-color: rgb(206, 1, 65);
+    color: white;
+border-radius: 4px;
+font-size: 24px;
+}
+
+img {
+    border-radius: 50%;
+}
+
+a:hover{
+    background-color: rgb(206, 1, 65);
+    text-decoration: none;
+}
+
+ul{
+list-style: none;
+}
+
+li{
+margin: 32px;
+background-color:rgb(255, 207, 185);
+border-radius: 6px;
+}

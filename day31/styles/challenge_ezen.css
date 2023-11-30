@@ -1,0 +1,27 @@
+h1{
+    font-size: 48px;
+    color: slategray;
+}
+
+a{
+    color: darkred;
+    font-size: 24px;
+}
+
+a:hover{
+    text-decoration: none;
+}
+
+img{
+    border-radius: 50%;
+}
+
+ul{
+    list-style: none;
+}
+
+li{
+    margin: 32px;
+    background-color: peachpuff;
+    border-radius: 6px;
+}
