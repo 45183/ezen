@@ -1,0 +1,42 @@
+body{
+    margin: 20px auto;
+}
+
+div{
+    border: 1px solid black;
+    margin: 10px;
+    text-align: center;
+}
+
+.container{
+    width: 1000px;
+    margin: 0 auto;
+}
+
+.header, .navigation, .footer{
+    height: 100px;
+}
+
+.navigation ul li{
+    display: inline-block;
+    border: 1px solid black;
+    width: 18%;
+    height: 30px;
+    margin: -2.5px;
+}
+
+.section{
+    overflow: hidden;
+}
+
+.content{
+    float: left;
+    width: 650px;
+    height: 400px;
+}
+
+.banner{
+    float: left;
+    width: 285px;
+    height: 400px;
+}

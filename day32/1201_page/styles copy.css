@@ -1,0 +1,74 @@
+*{
+    margin: 10px auto;
+    /* text-align: center; */
+}
+body{
+    background-color: rgb(244, 234, 255);
+}
+header{
+    text-align: center;
+}
+
+header > h1 {
+    font-size: 3.2em;
+    text-align: center;
+
+    color: rgb(88, 49, 196);
+}
+
+img{
+    width: 280px;
+}
+
+main{
+    text-align: left;
+    border: 1px solid rgb(122, 74, 218);
+    background-color: rgb(122, 74, 218);
+    width: 38%;
+    border-radius: 10px;
+    color: white;
+    margin-bottom: 20px;
+    margin-top: 50px;
+    padding: 30px 30px;
+}
+
+main h1{
+    font-size: 1.5em;
+}
+
+main p{
+    font-size: 0.8em;
+}
+
+#nomark{
+    border-left: 5px solid rgb(122, 74, 218);
+    padding-left: 5px;
+}
+
+#mark{
+    border-left: 5px solid rgb(247, 209, 85);
+    padding-left: 5px;
+    color: rgb(247, 209, 85);
+}
+
+main a{
+    border: 1px solid rgb(255, 237, 177);
+    background-color: rgb(255, 237, 177);
+    color: black;
+    text-decoration: none;
+    border-radius: 5px;
+}
+
+footer{
+    text-align: center;
+}
+
+footer a{
+    border: 1px solid rgb(250, 201, 39);
+    background-color: rgb(250, 201, 39);
+    color: black;
+    text-decoration: none;
+    padding: 5px 10px;
+    margin-top: 10px;
+    border-radius: 5px;
+}
