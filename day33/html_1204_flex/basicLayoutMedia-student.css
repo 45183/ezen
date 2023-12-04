@@ -1,0 +1,16 @@
+/* basicLayoutMedia.css */
+.info {
+    display: none;
+  }
+  
+  .top {
+    flex-direction: column;
+  }
+  
+  .bottom-box2 {
+    display: none;
+  }
+  
+  .bottom-box4 {
+    display: none;
+  }

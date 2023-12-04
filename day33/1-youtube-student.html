@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Youtube Navbar</title>
+	<!-- font awesome cdn -->
+	<script src="https://kit.fontawesome.com/fb38926c9b.js" crossorigin="anonymous"></script>
+	<style>
+		* {
+			margin: 0;
+			padding: 0;
+		}
+
+		nav {
+			padding: 10px 0;
+			width: 100%;
+			background-color: black;
+			justify-content: space-between;	/* 좌우 정렬 */
+		}
+
+		.toggleBtn{
+			color: white;
+			margin-right: 1rem;
+		}
+
+		.logoArea p:nth-child(1){
+			color: red;
+			margin-right: 3px;
+		}
+
+		.logoArea p:nth-child(2){
+			color: white;
+			font-weight: bold;
+			margin-left: 3px;
+		}
+
+		nav, .titleArea, .logoArea{
+			display: flex;
+		}
+
+		.titleArea .toggleBtn, .logoArea p{
+			margin: 5px;
+		}
+
+		.buttonArea{
+			display: flex;
+		}
+		
+		.buttonArea > p{
+			margin: 5px;
+			color: white;
+		}
+
+
+	</style>
+</head>
+
+<body>
+	<nav>
+		<!-- Title Area -->
+		<div class="titleArea">
+			<p class="toggleBtn"><i class="fa-solid fa-bars"></i></p>
+			<div class="logoArea">
+				<p><i class="fa-brands fa-youtube"></i></p>
+				<p>Premium</p>
+			</div>
+		</div>
+		<!-- Button Area -->
+		<div class="buttonArea">
+			<p><i class="fa-solid fa-magnifying-glass"></i></p>
+			<p><i class="fa-solid fa-microphone"></i></p>
+			<p><i class="fa-solid fa-video"></i></p>
+			<p><i class="fa-solid fa-bell"></i></p>
+			<p><i class="fa-sharp fa-solid fa-image-portrait"></i></p>
+		</div>
+	</nav>
+</body>
+
+</html>

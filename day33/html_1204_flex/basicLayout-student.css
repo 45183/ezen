@@ -1,0 +1,89 @@
+/* basicLayout.css */
+@import 'rootVariable.css';
+
+body {
+  height: 100vh;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  height: var(--header-height);
+}
+
+.logo {
+  flex: 1;
+  background-color: var(--bs-pink);
+}
+
+.menu {
+  flex: 4;
+  background-color: var(--bs-info);
+}
+
+.info {
+  flex: 1;
+  background-color: var(--bs-teal);
+}
+
+section {
+  height: calc(100vh - var(--header-height) * 2);
+}
+
+.top {
+  display: flex;
+  height: 60%;
+}
+
+.left {
+  flex: 4;
+  background-color: var(--bs-yellow);
+}
+
+.right {
+  flex: 2;
+  background-color: var(--bs-purple);
+}
+
+.bottom {
+  display: flex;
+  height: 40%;
+}
+.bottom-box1 {
+  background-color: var(--bs-green);
+  flex: 1;
+}
+
+.bottom-box2 {
+  background-color: var(--bs-gray-500);
+  flex: 2;
+}
+
+.bottom-box3 {
+  flex: 2;
+}
+
+.bottom-box-top {
+  background-color: var(--bs-indigo);
+  height: 50%;
+}
+
+.bottom-box-under {
+  background-color: var(--bs-danger);
+  height: 50%;
+}
+
+.bottom-box4 {
+  background-color: var(--bs-secondary);
+  flex: 1;
+}
+
+footer {
+  height: var(--bottom-height);
+  background-color: var(--bs-code-color);
+}
