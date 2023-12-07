@@ -2,6 +2,8 @@
 import { createSpinner } from './spinner.js';
 
 // 최신 뉴스 아이템을 생성하는 함수입니다.
+// 외부링크와 뉴스 본문을 각각의 태그에 붙여서 html에 연동되기 위한 사용자 정의 함수(UDF)
+// article이라는 인풋 데이터를 받아 title, link (제목과 링크)를 분리하여 listItem 내부의 하위 className, append(anchor) 두 하위 객체를 통해 데이터를 출력
 function createLatestNewsElement(article) {
   const { title, link } = article; // 구조 분해 할당을 사용해 article 객체에서 title과 link를 추출합니다.
 
@@ -76,7 +78,7 @@ function renderTopNews() {
   createSpinner(articleSection) // 스피너를 생성하여 로딩 중임을 표시합니다.
 
   setTimeout(() => {
-    fetch("./data/top.json") // 상위 뉴스 데이터를 fetch로 비동기적으로 가져옵니다.
+    fetch("./data/top.json") // 상위 뉴스 데이터를 fetch로 비동기적으로 가져옵니다.   // 그냥 html 실행 시 서버가 아니므로 작동하지 않음
       .then((res) => res.json()) // 응답을 JSON 형식으로 변환합니다.
       .then((data) => {
         const { articles } = data; // 구조 분해 할당으로 articles 배열을 추출합니다.
@@ -115,13 +117,13 @@ function renderLatestNews() {
   }, 1500); // 1.5초 후에 이 작업을 시작합니다.
 }
 
-// 스피너를 숨기는 함수입니다.
+// 스피너를 숨기는 함수입니다.    // 파이썬 같은 경우 hideSpinner 함수가 위로 올라가야 실행 가능
 function hideSpinner(parent) {
   const spinnerArea = parent.querySelector('.spinner-area'); // 스피너가 있는 영역을 찾습니다.
   spinnerArea.style.display = 'none'; // 스피너를 숨깁니다.
 }
 
-// DOM이 완전히 로드되면 실행됩니다.
+// DOM이 완전히 로드되면 실행됩니다.    // 코드 전체가 다 실행되면
 document.addEventListener('DOMContentLoaded', () => {
   renderTopNews(); // 상위 뉴스 렌더링 함수 실행
   renderLatestNews(); // 최신 뉴스 렌더링 함수 실행
