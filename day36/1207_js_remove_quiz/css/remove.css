@@ -1,0 +1,7 @@
+span{
+    color: grey;
+}
+
+span:hover{
+    color: red;
+}

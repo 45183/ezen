@@ -1,0 +1,25 @@
+ul{
+    list-style: none;
+}
+
+form{
+    width: 25%;
+}
+
+button{
+    padding: 10px 30px;
+    border-radius: 5px;
+    width: 100%;
+}
+
+#attendant {
+    margin-top: 10px;
+    border: 1px solid grey;
+    width: 30%;
+    border-collapse: collapse;
+}
+
+tr, td, th{
+    border: 1px solid grey;
+    padding: 5px;
+}
