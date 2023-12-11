@@ -1,11 +1,11 @@
-const subjects = document.querySelectorAll('li')
-
 // const subject = document.querySelector('li');
 // const b = subject.innerText.split(' : ');
 // const a = b[1].split(', ');
 // console.log(b)
 // console.log(a)
+const subjects = document.querySelectorAll('li')
 const set = new Set();
+
 for (i=0; i < subjects.length; i++){
     const a = subjects[i].innerText.split(' : ');
     const b = a[1].split(', ');
