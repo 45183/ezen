@@ -1,0 +1,56 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 서버는 request, response로 구성되어 있다 (req, res - 요청, 응답)
+
+        // This function gets invoked when server sends the response
+        function reqListener(e) {
+            console.log(e.currentTarget.response);
+        }
+
+        var oReq = new XMLHttpRequest();
+        var serverAddress = "https://hacker-news.firebaseio.com/v0/topstories.json";
+
+        oReq.addEventListener("load", reqListener);
+        oReq.open("GET", serverAddress);
+        oReq.send();
+    </script>
+</body>
+
+</html> -->
+
+
+
+
+<!-- <!DOCTYPE html>
+<html>
+<head>
+    <title>Your Page Title</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+</head>
+<body>
+    <script>
+        $(document).ready(function(){
+            // Your jQuery code goes here
+            $.ajax({    // $.ajax -> 비동기 통신 방식
+                url: 'https://hacker-news.firebaseio.com/v0/topstories.json',
+                type: 'GET',
+                success: function onData (data) {
+                    console.log(data);
+                },
+                error: function onError (error) {
+                    console.error(error);
+                }
+            });
+        });
+    </script>
+</body>
+</html> -->

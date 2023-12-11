@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // var name = 'ken'
+        // function foo() {
+        //     console.log(this.name); // 'this' === global object (브라우저상에선 window 객체)
+        // }
+
+        // foo();      // ken 출력
+
+
+
+
+        // 'use strict';
+
+        // var name = 'ken';
+
+        // function foo() {
+        //     console.log(this.name); // 'this' === undefined
+        // }
+
+        // foo();          // error
+
+
+
+
+        // var age = 100;
+
+        // function foo() {
+        //     var age = 99;
+        //     bar(age);
+        // }
+
+        // function bar(age) {
+        //     console.log(this.age); // 100
+        // }
+
+        // foo();
+
+
+
+
+
+        // Dot Notation - 오브젝트 메소드 형식으로 실행시키는 방식
+        // var age = 100;
+
+        // var ken = {
+        //     age: 35,
+        //     foo: function foo() {
+        //         console.log(this.age); // 35
+        //     }
+        // };
+
+        // ken.foo();
+
+
+
+
+
+        // function foo() {
+        //     console.log(this.age);
+        //     alert(this.age);
+        // }
+        // var age = 100;
+        // var ken = {
+        //     age: 36,
+        //     foo: foo
+        // };
+        // var wan = {
+        //     age: 32,
+        //     foo: foo
+        // };
+
+
+        // foo();      // 100 -> 일반함수의 형태로 실행
+        // ken.foo();  // 36
+        // wan.foo();  // 32
+
+
+
+
+
+        // var age = 100;
+        // var ken = {
+        //     age: 35,
+        //     foo: function bar() {
+        //         console.log(this.age);
+        //     }
+        // };
+        // var wan = {
+        //     age: 31,
+        //     foo: ken.foo
+        // };
+        // var foo = ken.foo;
+        // ken.foo();  // 35
+        // wan.foo();  // 31
+        // foo(); // what is the value of 'this' in this case?  // 100
+        // // ken.foo : ken이라는 객체안의 메소드지만 결국 bar라는 함수이다.
+        // // 객체안의 메소드지만 this의 방식에 따라 각각 다르게 호출이 된다.
+
+
+
+
+
+        // var age = 100;
+
+        // function foo() {
+        //     console.log(this.age);
+        //     alert(this.age);
+        // }
+
+        // var ken = {
+        //     age: 35,
+        //     log: foo
+        // };
+
+        // // foo function gets invoked
+        // // `this` refers to first argument
+
+
+        // var kenLog = ken.log;
+
+        // foo();          // 100
+        // kenLog();       // 100
+        // foo.call(ken);  // 35
+        // foo.apply(ken); // 35
+        // // foo.call(wan) : foo()라는 함수가 실행이 되는데 this의 값이 인자의 값으로 준 wan이 되어 실행이 된다.
+        // // foo.apply(ken) : foo()라는 함수 실행이 되고 ken이라는 인자값이 this의 값으로 설정이 되어 실행이 된다.
+        // // 일반함수 실행 방식, dot Notaition 방식과 다르게 this의 값이 어떤 객체가 되어야 하는지 개발자가 직접 정하고 명령을 내릴 수 있다.
+
+
+
+
+
+
+        // function Person() {
+        //     // this = {};
+
+        //     this.name = 'ken';
+
+        //     // {
+        //     // name : 'ken';
+        //     // }
+
+        //     // return this;
+        // }
+
+        // var ken = new Person();
+        // console.log(ken);  // Person?{name: "ken"}
+
+
+
+
+
+
+        // function Person() {
+        //     var obj = {};
+        //     obj.name = 'ken';
+        //     return obj;
+        // }
+
+        // var ken = Person();
+        // console.log(ken);  // {name: "ken"}
+
+
+
+
+
+
+        // function Person(name) {
+        //     this.name = name;
+        //     console.log(this);
+        // }
+
+        // var ken = new Person('ken');
+        // console.log(ken);	// Person {name : 'ken'};
+
+
+
+
+
+
+        function Person(name, age) {
+            this.name = name;
+            this.age = age;
+        }
+
+        // instances"라고 한다.
+        var ken = new Person('ken huh', 34);
+        var wan = new Person('wan huh', 30);
+
+        console.log(ken);  // Person?{name: "ken huh", age: 34}
+        console.log(wan);  // Person?{name: "wan huh", age: 30}
+
+        // 새로운 객체가 선택이 된다.
+    </script>
+</body>
+
+</html>

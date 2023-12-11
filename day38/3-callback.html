@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Test Page</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
+
+<body>
+    <script>
+        // function getData() {
+        //     var tableData;
+        //     $.get('https://jsonplaceholder.typicode.com/posts/1', function (response) {
+        //         tableData = response;
+        //     });
+        //     return tableData;
+        // }
+
+        // console.log(getData()); // undefined
+        // // 모든 코드가 정확히 작성되고 실행되었음에도 서버의 데이터 응답요청을 기다리지 않고 바로 다음 명령어 
+        // // 즉, 출력 명령어를 실행하다보니 데이터의 응답없이 출력을 하니까 출력할 데이터가 없는 현상이 발생
+
+
+
+
+
+        // // 콜백 함수로 비동기 처리 방식의 문제점 해결하기
+        // function getData(callbackFunc) {
+        //     $.get('https://jsonplaceholder.typicode.com/posts/1', function (response) {
+        //         callbackFunc(response); // 서버에서 받은 데이터 response를 callbackFunc() 함수에 넘겨줌
+        //     });
+        // }
+
+        // getData(function (tableData) {
+        //     console.log(tableData); // $.get()의 response 값이 tableData에 전달됨
+        // });
+
+
+
+
+
+
+
+
+        // // 콜백 지옥
+        // // 함수 정의
+        // function parseValue(response, callback) {
+        //     // 여기에 parseValue 함수의 로직을 구현합니다.
+        //     // 예를 들어, response에서 id 값을 추출한다고 가정합니다.
+        //     var id = response.id;
+        //     callback(id);
+        // }
+
+        // function auth(id, callback) {
+        //     // 여기에 auth 함수의 로직을 구현합니다.
+        //     // 예를 들어, id를 기반으로 인증 결과를 반환한다고 가정합니다.
+        //     var result = (id === 1); // 단순 예시
+        //     callback(result);
+        // }
+
+        // function display(result, callback) {
+        //     // 여기에 display 함수의 로직을 구현합니다.
+        //     // 예를 들어, 결과에 따라 문자열을 반환한다고 가정합니다.
+        //     var text = result ? "Success" : "Failure";
+        //     callback(text);
+        // }
+
+
+        // $.get('https://jsonplaceholder.typicode.com/posts/1', function (response) {
+        //     parseValue(response, function (id) {
+        //         auth(id, function (result) {
+        //             display(result, function (text) {
+        //                 console.log(text);
+        //                 alert(text);
+        //             });
+        //         });
+        //     });
+        // });
+
+
+
+
+
+
+        // 콜백 지옥 개선
+        // 함수 정의
+        function parseValue(response, callback) {
+            // 여기에 parseValue 함수의 로직을 구현합니다.
+            // 예를 들어, response에서 id 값을 추출한다고 가정합니다.
+            var id = response.id;
+            callback(id);
+        }
+
+        function auth(id, callback) {
+            // 여기에 auth 함수의 로직을 구현합니다.
+            // 예를 들어, id를 기반으로 인증 결과를 반환한다고 가정합니다.
+            var result = (id === 1); // 단순 예시
+            callback(result);
+        }
+
+        function display(result, callback) {
+            // 여기에 display 함수의 로직을 구현합니다.
+            // 예를 들어, 결과에 따라 문자열을 반환한다고 가정합니다.
+            var text = result ? "Success" : "Failure";
+            callback(text);
+        }
+
+        function parseValueDone(id) {
+            auth(id, authDone);
+        }
+        function authDone(result) {
+            display(result, displayDone);
+        }
+        function displayDone(text) {
+            console.log(text);
+        }
+        $.get('https://jsonplaceholder.typicode.com/posts/1', function (response) {
+            parseValue(response, parseValueDone);
+        }); d
+    </script>
+</body>
+
+</html>

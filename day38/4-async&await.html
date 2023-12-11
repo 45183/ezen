@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // async function fetchUser(url) {
+        //     try {
+        //         let response = await fetch(url);
+        //         if (!response.ok) {
+        //             throw new Error(`HTTP error! status: ${response.status}`);
+        //         }
+        //         return await response.json();
+        //     } catch (error) {
+        //         console.error('Error fetching user:', error);
+        //     }
+        // }
+
+        // async function getUser() {
+        //     var user = await fetchUser('https://jsonplaceholder.typicode.com/posts/1');
+        //     if (user && user.id === 1) {
+        //         console.log(user.title); // 이 API에서는 'name' 대신 'title' 속성을 사용합니다.
+        //     }
+        // }
+
+        // getUser();
+
+
+
+
+
+
+        // // async await 기본 문법
+        // async function 함수명() {
+        //     await 비동기_처리_메서드_명();
+        // }
+
+
+
+
+
+        // function fetchItems() {
+        //     return new Promise(function (resolve, reject) {
+        //         var items = [1, 2, 3];
+        //         resolve(items)
+        //     });
+        // }
+
+        // async function logItems() {
+        //     var resultItems = await fetchItems();
+        //     console.log(resultItems); // [1,2,3]
+        // }
+
+
+
+
+
+
+
+        // // HTTP 통신 동작을 모방한 코드
+        // function fetchItems() {
+        //     return new Promise(function (resolve, reject) {
+        //         setTimeout(function () {
+        //             var items = [1, 2, 3];
+        //             resolve(items)
+        //         }, 3000);
+        //     });
+        // }
+
+        // // jQuery ajax 코드
+        // function fetchItems() {
+        //     return new Promise(function (resolve, reject) {
+        //         $.ajax('domain.com/items', function (response) {
+        //             resolve(response);
+        //         });
+        //     });
+        // }
+
+
+
+
+
+        // // async await
+        // // 여러 개의 비동기 처리 코드를 다룰 때 장점
+
+        // function fetchUser() {
+        //     var url = 'https://jsonplaceholder.typicode.com/users/1'
+        //     return fetch(url).then(function (response) {
+        //         return response.json();
+        //     });
+        // }
+
+        // function fetchTodo() {
+        //     var url = 'https://jsonplaceholder.typicode.com/todos/1';
+        //     return fetch(url).then(function (response) {
+        //         return response.json();
+        //     });
+        // }
+
+
+        // async function logTodoTitle() {
+        //     var user = await fetchUser();
+        //     if (user.id === 1) {
+        //         var todo = await fetchTodo();
+        //         console.log(todo.title); // delectus aut autem
+        //     } else {
+        //         var user = await fetchUser();
+        //         console.log(user.address);
+        //     }
+        // }
+
+        // logTodoTitle();
+
+
+
+
+
+
+
+        // async await 예외 처리 - try catch
+        async function logTodoTitle() {
+            try {
+                var user = await fetchUser();
+                if (user.id === 1) {
+                    var todo = await fetchTodo();
+                    console.log(todo.title); // delectus aut autem
+                }
+            } catch (error) {
+                console.log(error);
+            }
+        }
+    </script>
+</body>
+
+</html>
