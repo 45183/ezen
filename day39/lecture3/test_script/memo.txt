@@ -1,0 +1,35 @@
+{
+  "name": "test_script",
+  "version": "1.0.0",
+  "scripts": {
+    "hello": "echo '안녕 node.js'",
+    "test": "echo 'test node.js'",
+    "stop": "echo 'stop node.js'",
+    "start": "echo 'start node.js'",
+    "restart": "echo 'restart node.js'"
+  }
+
+}
+
+npm run hello
+npm run test
+npm run stop
+npm run start
+npm run restart
+
+
+
+
+
+{
+  "name": "test_script",
+  "version": "1.0.0",
+  "scripts": {
+    "prehello": "echo '미리 안녕 node.js'",
+    "hello": "echo '안녕 node.js'",
+    "posthello": "echo '또 안녕 node.js'"
+  }
+}
+
+package.json 설정 시 
+명령어 앞에 pre & post 붙이면 알아서 앞뒤로 실행

@@ -1,0 +1,9 @@
+{
+  "name": "test_script",
+  "version": "1.0.0",
+  "scripts": {
+    "prehello": "echo '미리 안녕 node.js'",
+    "hello": "echo '안녕 node.js'",
+    "posthello": "echo '또 안녕 node.js'"
+  }
+}

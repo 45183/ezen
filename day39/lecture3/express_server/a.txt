@@ -1,0 +1,16 @@
+npm ls
+-> 필요 dependent package 확인
+(package.json에서도 가능)
+
+
+
+
+a.js
+내가 자주 쓸 함수 등을 index.js로 만들어 놓고
+맨 위에 내 파일이 성공적으로 읽어지면 메세지가 출력되게 설정
+
+
+
+npm install sample_package 로 json 파일 만든 폴더에 설치(나의 파일을 패키지화 함) 시 sample_package 폴더 생성
+sample_package 폴더 안에 index.js 넣어두기
+node a 이렇게 실행시 require 함수를 통해서 내가 작성한 패키지 내부의 함수에 접근하여 작업을 수행함
