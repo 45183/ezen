@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8" />
+  <title>RESTful SERVER</title>
+  <link rel="stylesheet" href="./restFront.css" />
+</head>
+<body>
+<nav>
+  <a href="/">Home</a>
+  <a href="/about">About</a>
+</nav>
+<div>
+  <form id="form">
+    <input type="text" id="username">
+    <button type="submit">등록</button>
+  </form>
+</div>
+<div id="list"></div>
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+<script src="./restFront.js"></script>
+</body>
+</html>
+
+<!-- 
+  1. 사용자 정보를 서버에서 가져옴
+  2. 화면에 데이터 표시하고 이벤트 연결
+  3. 서버에 사용자 입력데이터 전송 및 불러들이기
+  4. 데이터 삭제요청
+  5. 생성한 데이터 화면에 표시(콘솔에 출력)
+ -->
