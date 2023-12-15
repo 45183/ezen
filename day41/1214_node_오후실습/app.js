@@ -38,7 +38,7 @@ app.get('/recommend', function(req, res) {
     // res.sendFile(htmlFilePath);
     
     // 다이나믹 컨텐츠이니 컨텐츠 업로드 후 추가 조건 설정
-    res.render('recommend', {
+    res.render('restaurants', {
         numberOfRestaurants:storedRestaurants.length,
         restaurant : storedRestaurants
     });
