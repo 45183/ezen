@@ -1,0 +1,9 @@
+sequelize - ORM(Object-Relational Mapping)의 일종
+- json과 DB를 매핑해주는 도구
+
+
+npm 에서  -D 옵션 의미 -> 개발 종속성이라는 속성 -> 개발 및 테스트 목적으로만 해당 패키지를 사용하겠다는 의미
+
+개발 3단계
+DEV -  TEST -  PROD(UCTION)
+개발 - 테스트  - 프로덕션
