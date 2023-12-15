@@ -24,24 +24,23 @@ app.get('/', function(req, res) {
 app.get('/restaurants', function(req, res) {
     // const htmlFilePath = path.join(__dirname, 'views', 'restaurants.html');
     // res.sendFile(htmlFilePath);
-    res.render('restaurants');
-});
 
-app.get('/recommend', function(req, res) {
     // 다이나믹 컨텐츠는 데이터를 적용할 json 파일을 불러온 후에
     // render 명령어를 통해서 페이지 로딩 시 데이터를 적용한다.
     const filePath = path.join(__dirname, 'data', 'restaurants.json');
     const fileData = fs.readFileSync(filePath);
     const storedRestaurants = JSON.parse(fileData);
-    
-    // const htmlFilePath = path.join(__dirname, 'views', 'recommend.html');
-    // res.sendFile(htmlFilePath);
-    
     // 다이나믹 컨텐츠이니 컨텐츠 업로드 후 추가 조건 설정
     res.render('restaurants', {
         numberOfRestaurants:storedRestaurants.length,
-        restaurant : storedRestaurants
+        restaurants : storedRestaurants
     });
+});
+
+app.get('/recommend', function(req, res) {    
+    // const htmlFilePath = path.join(__dirname, 'views', 'recommend.html');
+    // res.sendFile(htmlFilePath);
+    res.render('/recommend')
 });
 
 
