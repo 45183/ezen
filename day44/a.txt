@@ -1,0 +1,298 @@
+express 프레임워크를 왜 사용하는지
+
+기본적인 node.js 라이브러리는 미들웨어, 템플릿 엔진, 요청을 받는 기능 등이 부족
+
+
+express 사용 이유
+웹 서버가 제공해야하는 기능으로 기능별 필요사항
+
+라우팅 - url 요청을 함수와 매핑시켜주는 기능 (내 주소와 나의 웹 서비스 관련 함수의 매칭)
+정적 파일 서비스 - 내가 준비한 css, 자바스크립트 등의 정적 파일 컨트롤
+템플릿 엔진 - 동적 웹페이지를 html을 사용해 생성하는 기능 (ejs 등)
+요청과 응답 데이터 다루기 - http 요청을 추상화해 서버를 다루는 기능
+미들웨어 - 요청과 응답사이 중간 결과를 처리하는 기능
+
+위 기능을 기본 node.js 에서 구현하려면 코드가 복잡해짐
+그래서 express 프레임워크 같은 오픈소스를 사용
+
+이러한 프레임워크 설치는 컴퓨터 전체에 설치하는 global 모드가 있고, 특정 폴더에 한정해서 설치하는 방법이 있음
+
+특정폴더에 한정해서 설치하는 장점 
+-> 프레임워크 별로 설치환경, 버전관리가 필요한 경우가 있어서
+   글로벌로 설치하면 다른 node.js 환경을 구축해야하는 경우 컴퓨터가 또 필요
+   각 폴더가 독립된 환경이라면 이러한 문제가 사라짐
+
+이러한 node.js 패키지 관리툴을 npm (nodejs package manager)라고 함
+
+
+
+기존 node js 대비 express 사용 서버 만들기
+
+
+
+
+
+
+api - application programming interface
+프로그램에서 다른 프로그램 기능을 사용하게 해주는 규칙
+예) 카카오맵, 정부자영업 데이터 다운 api 등
+특징 -> 내가 사용할 프로그램의 소스코드를 이해하지 않아도 사용 가능
+
+
+
+
+api에서 우리가 사용하는 기능은 sql의 CRUD 구현기능
+GET, POST, DELETE 등 
+
+
+
+
+
+
+curl - 서버를 구동했을 때 나오는 세부적인 상태를 진단하는 툴
+curl의 옵션 중 자주 쓰이는 것 -X
+curl -X GET localhost:3000  이런 식으로 사용
+
+포스팅 글을 없애고 이를 테스트하는 방법은
+curl -X DELETE localhost:3000/posts/2
+성공하면 데이터가 삭제
+
+
+
+package.json 파일을 만드는 이유와 방법
+npm init -y (-y 사용하지 않을 경우 하나씩 지정 가능)
+
+morgan, sequelize, express, nodemon, nunjucks 등
+사용 패키지 리스트가 길어짐, 파일도 많아져서 어떤것이 주 실행 스크립트인지 정리
+package.json에 내가 필요한 모든 사용 패키지 버전을 기록하고 
+주 실행 스크립트를 지정해서 버전관리, 패키지관리를 돕는 파일
+
+
+
+npm install
+npm update
+npm uninstall
+
+
+package.json의 추가적인 사용법
+여러개의 명령어를 등록해서 json의 키값을 입력하면 해당 기능이 실행
+(scripts에 "start" : "nodemon app" -> npm start 시 nodemon app 실행)
+echo -> 지정된 메세지 출력
+ex) scripts에 "test" : "echo 'test node'"면
+    npm test -> test node 출력
+
+
+node js package의 단점
+->하나의 기능을 쓰기 위해 세부 패키지가 많아짐 (ora를 예시로 ora 사용하려면 세부 패키지가 약 30개 필요)
+  파일의 개수가 많아짐 -> 전송속도 느려짐 (같은 용량이라도 100메가 하나가 0.1메가 1000개보다 전송속도 훨씬 빠르다.)
+
+자바스크립트 내 하위데이터를 끄집어내는 기능 -> 구조분해할당
+
+
+
+
+
+
+비동기  /  프라미스  /  async
+
+서버의 특징은 비동기 처리
+다음 명령어를 기다리지 않고 기능이 실행됨
+문제는 url에서 정보를 읽는 중요한 기능을 기다리지 않고
+데이터가 없다는 식으로 문제 발생
+비동기를 쓰지 않으면 특정 작업때문에 병목현상 발생
+이를 해결하기 위해 나온게 콜백함수
+
+
+
+
+
+콜백함수의 예시 (3단계 콜백함수)
+
+회원가입 api호출 후
+1. DB에 저장  2. 이메일 송부  3. 성공메세지 송부
+
+const DB = [];
+
+function register(user){
+    return saveDB(user, function(user){
+        return sendEmail(user, function(user){
+            return getResult(user);
+        });
+    });
+};
+
+function saveDB(user, callback){
+    DB.push(user);
+    console.log(`save ${user.name} to DB`);
+    console.log(`${user.name} 데이터가 DB에 잘 저장되었습니다.`);
+    return callback(user);
+};
+
+function sendEmail(user, callback){
+    console.log(`${user.name} 데이터가 전송되었습니다.`);
+};
+
+
+function getResult(user){
+    return `성공! ${user.name}`;
+};
+
+
+
+이 코드를 테스하기 위한 샘플데이터를 정의하고 함수를 실행하는 명령어
+
+const result = register({email: "andy@test.com", password: "1234", name: "andy"});
+console.log(result);
+
+
+
+콜백함수는 단계별로 엮여 있어서 디버그가 힘들다
+미래 특정 시점에 실행하는 객체로 promise를 사용
+
+promise는 이행, 거절, 대기 3가지 상태를 가진다
+
+
+
+promise 예시
+일부러 콜백함수와의 비교를 위해 메인 프라미스 함수를 앞으로 가져옴
+그냥 돌릴 경우 에러 (함수가 사전에 정의되지 않았기 때문)
+
+const DB = [];
+
+function registerBypromise(user){
+    const result = saveDB(user).then(sendEmail).then(getResult);
+    console.log(result);
+    return result;
+};
+
+function saveDB(user){
+    const oldDBsize = DB.length;
+    DB.push(user);
+    console.log(`${user.name} 데이터가 DB에 잘 저장되었습니다.`);
+    // 콜백대신 promise 객체를 반환
+    return new Promise((resolve, reject) => {
+        if(DB.length > oldDBsize){
+            resolve(user);
+        } else{
+            reject (new Error("DB저장오류!"));
+        };
+    });
+};
+
+function sendEmail(user){
+    console.log(`${user.email} 데이터가 전송되었습니다.`);
+    return new Promise((resolve) => {
+        resolve(user);
+    });
+};
+
+function getResult(user){
+    return new Promise((resolve, reject) => {
+        `성공! ${user.name}`;
+    });
+};
+
+const result = registerBypromise({email: "andy@test.com", password: "1234", name: "andy"});
+
+결과값이 promise 객체이므로 .then에 함수를 넣어서 결과를 볼 수 있다.
+result.then(console.log);
+
+promise도 문제가 있는데 예외처리 적용에 문제가 있다.
+
+
+
+
+
+
+
+프라미스의 단점을 다룬 예시 코드
+미들웨어 기능을 구현하는 반복문을 코딩하다 보면 잘못 사용할 소지가 있다.
+미들웨어 기능을 만들다 보면 프라미스의 장점은 사라지고 사실상 콜백함수 뭉치와 같이 에러에 취약해진다.
+
+const axios = require('axios');
+const url = "https://raw.githubusercontent.com/wapj/musthavenodejs/main/movieinfo.json";
+
+axios.get(url).then((result) => {
+    if(result.status != 200){
+        throw new Error("요청에 실패");
+    };
+
+    if(result.data){
+        return result.data;
+    }
+    throw Error("데이터가 없어요");
+})
+.then((data) => {
+    if(!data.articleList || data.articleList.size == 0){
+        throw new Error("데이터가 없어요");
+    }
+    return data.articleList;
+})
+.then((articles) => {
+    return articles.map((article, idx) => {
+        return {title: article.title, rank: idx + 1};
+    });
+})
+.then((results) => {
+    for(let movieinfo of results){
+        console.log(`[${movieinfo.rank}위] ${movieinfo.title}`);
+    };
+})
+.catch((err) => {
+    console.log("에러발생");
+    console.log(err);
+});
+
+
+
+
+
+
+
+
+async await를 사용해서 미들웨어 파트의 에러를 다루는 방식의 변화를 알아보자
+async await는 가장 최근 도입된 비동기 처리방식
+async는 asynchronous(비동기)라는 뜻
+내가 비동기 처리하고 싶은 함수 맨 앞에 async를 붙이고 응답을 기다려야할 필수적인 기능에 await(기다리다)를 붙이는 방식
+try, catch 두개의 구문으로 그 함수의 전체적인 성공과 실패시 진행할 내용을 담음
+나중에 코드 구조 안에 try함수 안에 try, catch를 중첩구조로도 가능
+
+const axios = require('axios');
+
+async function getTop20Movies(){
+    const url = "https://raw.githubusercontent.com/wapj/musthavenodejs/main/movieinfo.json";
+    try{
+        const result = await axios.get(url);
+        const {data} = result;
+        if(!data.articleList || data.articleList.size == 0){
+            throw new Error("데이터가 없습니다.")
+        }
+        
+        const movieinfos = data.articleList.map((article, idx) => {
+            return {title: article.title, rank: idx + 1};
+        });
+
+        for(let movieinfo of movieinfos){
+            console.log(`[${movieinfo.rank}위] ${movieinfo.title}`);
+        }
+    } catch(err){
+        throw new Error(err);
+    }
+}
+
+getTop20Movies();
+
+
+
+
+
+
+
+
+
+nunjucks vs ejs
+
+nunjucks - .html을 사용
+ejs - .ejs 사용
+
+공통점 - 자바스크립트가 본문에 들어감
