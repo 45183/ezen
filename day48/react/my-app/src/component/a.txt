@@ -1,0 +1,1 @@
+component 폴더는 src 폴더 안에 위치해야 함
