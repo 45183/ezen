@@ -1,0 +1,27 @@
+.TodoEditor .editor_wrapper {
+    width: 100%;
+    display: flex;
+    gap: 10px;
+}
+
+.TodoEditor input{
+    flex: 1;    /* flex가 1이면 너비가 브라우저 크기에 따라서 같이 달라짐 */
+    box-sizing: border-box;
+    border: 1px solid slategray;
+    border-radius: 5px;
+    padding: 15px;
+}
+
+.TodoEditor input:focus{
+    outline: none;
+    border: 1px solid lightgray;
+}
+
+.TodoEditor button{
+    cursor: pointer;
+    width: 80px;
+    border: none;
+    background-color: aquamarine;
+    color: white;
+    border-radius: 5px;
+}

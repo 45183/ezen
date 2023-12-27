@@ -1,0 +1,46 @@
+node.js에서 쓰이는 map 함수는
+변형 메서드의 일종으로
+변형 메서드란 배열을 변형하거나 요소를 재정렬하는 메서드(함수)이다.
+
+
+
+map의 사용법
+Array.map(callback(item, index, array))
+
+
+ex 1
+let arr = [1, 2, 3, 4]
+let newArr = arr.map((item) => item * 3)
+
+console.log(newArr);
+newArr = [3, 6, 9, 12]
+
+
+
+
+ex 2
+데이터셋 안의 이름 key를 가지는 데이터 출력
+let arr3 = [
+    {name: '윤호', hobby: '축구'},
+    {name: '호형', hobby: '농구'},
+    {name: '민호', hobby: '테니스'},
+    {name: '기현', hobby: '야구'}
+];
+
+
+let newArr3 = arr3.map((item) => item.name);
+console.log(newArr3);
+newArr3 = ['윤호', '호형', '민호', '기현']
+
+
+
+
+
+
+
+reduce는  배열 요소를 전부 돌면서 함수를 실행하고 단 하나의 결과만 출력
+
+let arr4 = [1, 2, 3, 4, 5];
+let result = arr.reduce((acc, item) => acc * item, 0);
+console.log(result);
+result = 15
