@@ -42,7 +42,7 @@ function TestComp(){
         <div>
             <h4>테스트 컴포넌트</h4>
             <div>
-                <bold>{count}</bold>
+                <b>{count}</b>
             </div>
             <div>
                 {/* <button onClick={onIncrease}>+</button>
