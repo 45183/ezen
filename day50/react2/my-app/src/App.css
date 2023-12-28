@@ -1,0 +1,12 @@
+.App {
+  margin: 0 auto;
+  text-align: center;
+  max-width: 500px;
+  width: 100%;
+  box-sizing: border-box;
+  padding: 20px;
+  border: 1px solid grey;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
