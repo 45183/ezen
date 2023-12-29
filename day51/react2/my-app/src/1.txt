@@ -1,0 +1,275 @@
+앱에 대한 최적화
+
+리액트는 연산 컴포넌트를 미리 계산해서 메모리에 가지고 있다가 필요할 때 화면에 렌더링
+불필요한 함수를 미리 메모리에 태우려고하면 프로그램이 느리고 무거워짐
+
+useMemo - 연산의 결과값을 기억했다가 필요할 때 사용함으로서(memoization, 메모이제이션) 불필요한 함수 호출을 막아주는 리액트 훅의 일종
+
+
+
+앱 최적화하기 위해 먼저 해야할 일 (함수 사용측면에서) - 어느 컴포넌트에서 어떤 함수를 언제 사용하는지 실태 파악
+
+
+
+
+
+컴포넌트                withFunc                    강화된 컴포넌트
+                      고차 컴포넌트            기능을 추가해 반환된 함수(컴포넌트)
+
+기능 A                  추가기능 B                  기능 A & B
+
+
+
+사용법
+const EnhancedComp = withFunc(Comp)
+
+
+
+
+
+context는 props drilling이라는 문제 해결을 위해 개발
+2단계 이상 데이터 전달이 불가능  (즉, 자손에게 전달 불가)
+body, main, sidebar 전부 한번에 값을 전달해야 한다면
+
+props drilling이 props 전달과정이 드릴로 땅을 파는 느낌
+노가다해도 되는데 데이터 교환 구조파악이 어려움
+= 코드 유지 보수 불가
+
+
+context는 문맥이라는 의미 - 글이 가진 방향성
+a와 b는 문맥이 같다 = 둘이 전달하는 뜻이 같고 목적도 동일
+
+todoEditor, todoList, todoItem 전부 '일정관리'라는 같은 문맥에 있음
+context를 쓰면 같은 문맥 그룹으로 묶어서 값을 공유할 수 있음
+
+
+context API
+기본구조
+import React from 'react';                                      context API는 리액트의 기능이므로 리액트에서 React 객체를 불러옴
+const MyContext = React.createContext(defaultValue);            React 객체에서 createContext 메서드를 호출해 새로운 context를 생성      인수로 전달하는 값은 context의 기본값
+function App(){
+    const data = 'data';
+    return (
+        <div>
+            <MyContext.Provider value={data}>                   MyContext.Provider를 App 컴포넌트의 자식으로 배치       
+                                                                이제 Provider가 설정한 자식, 자손 컴포넌트들은 MyContext 소속으로 묶여서 이 객체에서 제공하는 데이터를 사용할 수 있음       
+                                                                App이 props로 데이터를 주면 MyContext가 받아서 MyContext 소속 컴포넌트들이 데이터를 공급받음
+                <body />
+            </MyContext.Provider>
+        </div>
+    )
+}
+
+
+
+
+
+
+
+리액트 useContext - 특정 context가 공급하는 데이터를 불러오는 리액트 훅
+사용법
+import React, {useContext} from 'react';
+const MyContext = React.createContext(defaultValue);    
+function App(){
+    const data = 'data';
+    return (
+        <div>
+            <MyContext.Provider value={data}>              
+                <body />
+            </MyContext.Provider>
+        </div>
+    )
+};
+
+function Main(){
+    const data = useContext(MyContext);
+};
+
+
+state & props 의 기본 골격은 변하지 않음
+useCallback을 통해서 상태변화 함수를 통제하였지만 코드 리팩토링의 차원이지
+props drilling 문제가 존재
+
+
+
+
+현재 일정관리 앱 분석 결과
+App은 할일 데이터인 state변수 todo, 할일을 관리하는 함수
+onCreate, onUpdate, onDelete를 MyContext.Provider에 전달
+
+
+기존의 문제는 일정관리 데이터, 함수를 TodoList를 통해서 받았음
+
+
+
+
+
+
+
+
+
+리액트를 간단히 정리하면
+
+스프레드 연산자와 구조분해 할당
+두가지 기능으로 객체화된 데이터에서 원하는 요소를 꺼낼 수 있음
+map 함수도 마찬가지
+
+
+push, pop, concat
+날짜 객체 처리법도 복습 new Date()
+흔히 다루는 데이터의 종류 - 숫자, 문자, 날짜
+컴포넌트 안에 객체형 데이터 쓸 때 주의 arrayA.b
+
+
+props의 개념
+부모 컴포넌트에서 전달할 값을 지정한 후에
+자식 컴포넌트가 props라는 이름으로 인수를 받아서 함수를 실행
+전달할 값의 지정 예시
+부모 컴포넌트 App.js 안에 자식 컴포넌트 Body.js 라인에 전달할 데이터 세팅
+const name = "이름";
+<Body name={name} />
+<Body name={name} location={location}/> -> 가독성 좋아짐
+
+{
+    name: "이름",
+    location: "지역"
+}
+
+
+그러면 Body.js 자식 컴포넌트 함수에서는
+function Body(props){} 이런 식으로 부모가 전달한 데이터를 인수로 받음
+props에서 데이터 객체화시 장점이 여러가지 keys값을 효과적으로 전달
+
+const bodyProps = {
+    name: "이름",
+    location: "지역" 
+}
+
+<Body {...bodyProps} />
+
+
+props는 컴포넌트(함수)도 전달 가능
+
+
+
+아래가 전달하고 싶은 컴포넌트라 가정 
+function childComp(){
+    return <div>자식컴포넌트</div>
+};
+
+
+부모 컴포넌트 App.js안에 자식 컴포넌트 childComp 입력
+
+function App(){
+    return (
+        <body>
+            <childComp />
+        </body>
+    )
+}
+
+
+
+childComp를 물려받을 자식함수는 props의 처리방식대로
+받을 인수를 세팅
+단, 함수를 받는 것이므로 객체처리 (즉, 중괄호 써야함)
+
+아래는 자식 컴포넌트 함수의 일부분
+function Body({children}){
+    return <div>{children}</div>
+};
+
+props로 물려받은 자식 컴포넌트 그 자체를 위처럼 화면에 표시
+
+
+
+
+
+
+과거 이벤트 함수 처리방식
+버튼클릭, 화면값 입력 등 이벤트 발생시 준비된 이벤트 핸들러
+자바스크립트 함수가 실행되면서 홈페이지의 원하는 기능을 실행
+
+
+리액트에서 이벤트 핸들러 스크립트 부를때도
+<button onClick={handleOnClick}>클릭</button>
+자바스크립트 함수를 중괄호로 감싼다
+리액트는 대소문자 구분하다보니 이전에 html에서 그냥 onclick하던 것 주의
+html -> onclick=''
+react -> onClick={} 
+
+
+state 상태의 이해 (데이터 처리의 정석)
+리액트 훅스  6가지 중 useState가 근간
+
+
+useState
+const [count, setCount] = useState(초기값);
+
+초기값 = 0 입력, 유저가 버튼 +100 클릭
+상태 업데이트 변수 setCount -> 100 증가
+count = 현재상태 + setCount = 0 + 100
+
+여기서 유저가 버튼 +10 클릭
+setCount -> +10
+count = 현재상태 + setCount = 110
+
+
+
+
+useState - 데이터의 상태변화
+useRef - DOM 요소의 직접 조작 (포커스 기능 구현 파트 - Todo 새로 등록시 빈칸이면 포커스)
+useEffect - state 값이 바뀔때마다 변경값을 춮력
+            state가 정확히 의도대로 반영되었는지 진단 (= 디버그)
+            지나친 페이지 새로고침 (=변경값 출력 = useEffect)
+useReducer - 상태변화 코드의 분리 (유지보수차원)
+             코드 리팩토링 / 원래 state를 활용한 상태변화 코드는 state 속한 함수 밖으로 못나감
+             state 관리를 컴포넌트 내부가 아닌 외부에서 할 수 있게 하는 리액트 훅스의 기능
+useMemo - 
+useCallback - CRUD 기능 구현 예제를 중심으로 설명했을때, 불필요한 onDelete, onUpdate 등 작업과 상관없는
+              함수가 불필요하게 재실행되는 것을 방지
+              (컴포넌트가 리렌더될때 내부 작성함수가 불필요하게 다시 생성되는 것 막음)
+              불필요하게 생성을 막다보니 const memoizedFunc = useCallback(func, []);
+              최적화를 위한 기능
+              데이터의 흐름과 이동을 처리하는 내부 작성함수를 관리하는 방법으로 state의 효과적인 사용을 도움
+useContext - 기존 props의 props drilling 문제 해결
+             일정관리 CRUD 기능으로 상태변화 CRUD 코드와 데이터 파트로 context를 나누어서 문제 해결
+             최적화를 위한 기능
+
+
+
+
+
+
+
+
+
+현재까지의 리액트 기능의 흐름 정리
+1. 컴포넌트
+2. props, 원하는 DOM요소 접근 (useRef)
+3. state 통한 데이터 처리방식 (useState)
+4. state에 대한 결과 진단 (useEffect)
+5. 상태변화 코드 분리 등 코드 리팩토링 (useReducer)
+6. 최적화 - Memoization원리 활용 (useMemo) 
+   불필요한 화면고침, 함수사용, 데이터 전달 시 불필요한 컴포넌트 리프레시 -> 최소화
+   React.memo - 리액트 객체 (리액트 훅스 x)
+
+   불필요한 화면의 리렌더링 차단
+   export default React.memo(Header);
+
+   import {useMemo} from 'react';
+   const value = useMemo(() => {
+     원하는 계산이든 원하는 상태변화코드 등 작업할 코드
+     함수 a
+     함수 b
+     함수 c
+   })
+   {a, b, c} = value;
+
+   원리는 같지만 접근방식 다름
+
+
+
+
+useState, React.memo, useRef - 3가지 정도만 사용
+나머지는 일정때문에 못한걸로
